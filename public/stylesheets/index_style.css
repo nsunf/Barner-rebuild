@@ -51,10 +51,6 @@
   flex-basis: 80%;
   display: flex;
   flex-direction: row; }
-  .card--3 .card__image-box img {
-    width: 100%;
-    aspect-ratio: 3 / 4;
-    object-fit: cover; }
   .card--3 .card__image-box .image-wrap {
     flex-grow: 1;
     flex-shrink: 1;
@@ -65,12 +61,13 @@
     .card--3 .card__image-box .image-wrap:first-child {
       transform: translateY(-100px);
       padding-left: 80px; }
-      .card--3 .card__image-box .image-wrap:first-child img {
-        width: 100%;
-        aspect-ratio: 3 / 4; }
     .card--3 .card__image-box .image-wrap:nth-child(2) {
       flex-basis: 60%;
       padding-right: 16px; }
+    .card--3 .card__image-box .image-wrap img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover; }
 
 .card--3 .card__description-box {
   flex-shrink: 1;
@@ -81,5 +78,49 @@
   .card--3 .card__description-box .description {
     padding-top: 60%;
     margin: 120px 0; }
+
+.card--4 .glasses-section__inner {
+  margin: 160px 40px;
+  display: flex; }
+
+.card--4 .card__description-box {
+  flex-basis: 45%;
+  padding: 0 40px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; }
+  .card--4 .card__description-box .line--horizontal {
+    height: 1px;
+    width: 100%;
+    margin: 40px 0; }
+  .card--4 .card__description-box .description {
+    text-align: right; }
+
+.card--4 .card__image-box {
+  display: flex; }
+  .card--4 .card__image-box .image-wrap {
+    width: 50%; }
+    .card--4 .card__image-box .image-wrap img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover; }
+  .card--4 .card__image-box .keywords-wrap {
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid #6668E2;
+    margin-left: 32px; }
+    .card--4 .card__image-box .keywords-wrap .keywords__el {
+      flex-grow: 1;
+      border-top: 1px solid #6668E2;
+      padding: 4px 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      .card--4 .card__image-box .keywords-wrap .keywords__el:first-child {
+        border: none; }
+      .card--4 .card__image-box .keywords-wrap .keywords__el .keywords__text {
+        writing-mode: vertical-lr;
+        font-size: 1.1em; }
 
 /*# sourceMappingURL=index_style.css.map */

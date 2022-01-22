@@ -82,12 +82,6 @@
         display: flex;
         flex-direction: row;
 
-        img {
-            width: 100%;
-            aspect-ratio: 3 / 4;
-            object-fit: cover;
-        }
-
         .image-wrap {
             flex-grow: 1;
             flex-shrink: 1;
@@ -100,20 +94,19 @@
             &:first-child {
                 transform: translateY(-100px);
                 padding-left: 80px;
-                img {
-                    width: 100%; 
-                    aspect-ratio: 3 / 4;
-                }
             } 
             &:nth-child(2) {
                 flex-basis: 60%;
                 padding-right: 16px;
             }
+            
+            img {
+                width: 100%;
+                aspect-ratio: 3 / 4;
+                object-fit: cover;
+            }
         }
     }
-
-
-    
 
     .card__description-box {
         flex-shrink: 1;
@@ -125,6 +118,73 @@
         .description {
             padding-top: 60%;
             margin: 120px 0;
+        }
+    }
+}
+
+.card--4 {
+    .glasses-section__inner {
+        margin: 160px 40px;
+        display: flex;
+    }
+
+    .card__description-box {
+        flex-basis: 45%;
+        padding: 0 40px;
+        box-sizing: border-box;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+
+        .line--horizontal {
+            height: 1px;
+            width: 100%;
+            margin: 40px 0;
+        }
+        .description {
+            text-align: right;
+        }
+    }
+
+    .card__image-box {
+        display: flex;
+        .image-wrap { 
+            width: 50%;
+            img {
+                width: 100%;
+                aspect-ratio: 3/4;
+                object-fit: cover;
+            }
+        }
+
+        .keywords-wrap {
+            display: flex;
+            flex-direction: column;
+            border-left: 1px solid $main-color;
+            margin-left: 32px;
+
+            .keywords__el {
+                flex-grow: 1;
+
+                border-top: 1px solid $main-color;
+                padding: 4px 16px;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                &:first-child {
+                    border: none;
+                }
+
+                .keywords__text {
+                    writing-mode: vertical-lr;
+                    font-size: 1.1em;
+                }
+            }
+
+            
         }
     }
 }
