@@ -1,4 +1,92 @@
 extends layout
 
+block styles 
+  link(rel='stylesheet', href='/stylesheets/index_style.css')
+
 block content
-  
+  main
+    section.glasses-section
+
+      .glasses-section__card.card.card--1
+        .card__inner.glasses-section__section-header
+          svg.glasses(viewbox="0 0 1080 720" width="100%" height="100%")
+            defs
+              text#text_glasses(
+                x="50%" 
+                y="50%" 
+                font-size="14em"
+                font-weight="900"
+                font-family="Avenir"
+                text-anchor="middle" 
+                alignment-baseline="central"
+                fill="#6668e2"
+              ) BARNER   
+
+              filter#blur(x="-50%" y="-50%" width="200%" height="200%")
+                feGaussianBlur(stdDeviation="10")
+
+              mask#mask 
+                image(href="../images/glasses_mask.png" x="50%" y="50%" width="70%" style="transform: translate(-35%, -20%)")
+
+            ellipse(cx="32%" cy="67%" rx="80" ry="20" fill="#000" opacity="0.5" filter="url(#blur)")
+            ellipse(cx="69%" cy="67%" rx="80" ry="20" fill="#000" opacity="0.5" filter="url(#blur)")
+            use(href="#text_glasses" filter="url(#blur)")
+            image(href="../images/glasses_origin.png" x="50%" y="50%" width="70%" style="transform: translate(-35%, -20%)")
+            use(href="#text_glasses" mask="url(#mask)")
+            image(href="../images/glasses_front.png" x="50%" y="50%" width="70%" style="transform: translate(-35%, -20%)")
+
+      .glasses-section__card.card.card--2
+        .card__inner
+          .card__description-box
+            p.description-box__description.description What are blue light glasses?<br/>
+              | Blue light glasses are specifically designed to protect our eyes against overexposure to the artificial blue light that is emitted by our digital devices. Computer glasses help us to avoid the potential side effects of Computer Vision Syndrome and to ensure that our eyes feel rested after long hours in front of our screens.
+          .card__image-box
+            .line.line--horizontal
+            .image-box__division
+              .line.line--vertical 
+              .img-wrap
+                img(src="../images/chroma-man-woman-01_1200x.jpeg" alt="image")
+
+      .glasses-section__card.card.card--3
+        .card__inner
+          .card__image-box
+            .image-wrap
+              img(src="../images/glasses/GINZA-BLACK-MAN-3-4_d64a1580-322d-4686-b0d1-f9f1f1fc31cb.jpg" alt="image")
+            .image-wrap
+              img(src="../images/glasses/GINZA-BLACK-MAN-FRONT_795e2787-7556-4410-bb20-46b05b51de1d.jpg" alt="image")
+          .card__description-box
+            p.description-box__description.description METAL GLASSES<br/>
+              | Metal eyeglasses padded at the nose, for adaptability and comfort. The perfect choice for a chic and refined look. Super lightweight, available in five colors and two unique shapes.
+      .glasses-section__card.card.card--4
+        .glasses-section__inner
+      .glasses-section__card.card.card--5
+        .glasses-section__inner
+      .glasses-section__card.card.card--6
+        .glasses-section__inner
+
+
+
+  //- svg(width="100vw" height="100vh")
+  //-   defs
+  //-     text(
+  //-       id="text_sunglasses"
+  //-       x="50vw" 
+  //-       y="50vh" 
+  //-       font-size="256"
+  //-       font-weight="900"
+  //-       font-family="Avenir"
+  //-       text-anchor="middle" 
+  //-     ) BARNER
+  //-     filter(id="text-blur")
+  //-       feGaussianBlur(stdDeviation="10")
+  //-     filter(id="light-blur")
+  //-       feGaussianBlur(stdDeviation="50")
+  //-     filter(id="light-blur2")
+  //-       feGaussianBlur(stdDeviation="100")
+
+  //-   use(href="#text_sunglasses" fill="#fffa87" filter="url(#light-blur2)")
+  //-   use(href="#text_sunglasses" fill="#fffa87" filter="url(#light-blur)")
+  //-   use(href="#text_sunglasses" fill="#fff" filter="url(#text-blur)")
+  //-   image(href="../images/sunglasses_origin.png" x="50%" y="50%" style="transform: translate(-523.5px, -300px);")
+  //-   use(href="#text_sunglasses" fill="#fff" style="mix-blend-mode: overlay;")
+  //-   image(href="../images/sunglasses_frame_nose.png" x="50%" y="50%" style="transform: translate(-523.5px, -300px);")
