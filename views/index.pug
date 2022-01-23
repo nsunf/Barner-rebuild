@@ -76,7 +76,40 @@ block content
                 .keywords__text.keywords_text--Better-sleep-cycles Better sleep cycles
 
       .glasses-section__card.card.card--5
-        .glasses-section__inner
+        .glasses-section__inner.glasses-section__horizontal-scroll-view
+          - 
+            var productsNums = [];
+            let maxNum = glasses_data.length - 1; 
+            while (productsNums.length < 5) {
+              let randomInset = Math.random() * maxNum;
+              let randomNum = Math.round(randomInset);
+              if (!productsNums.includes(randomNum)) {
+                productsNums.push(randomNum);
+              }
+            }
+
+          -
+            function getFileNameFromImgURL(url) {
+                let startIndex = url.indexOf('products/');
+                let endIndex = url.indexOf('?v=');
+                return url.slice(startIndex + 9, endIndex);
+            }
+            
+          each val in productsNums
+            -
+              let product = glasses_data[val]
+              let productImgPath = '../images/glasses/' + getFileNameFromImgURL(product.imgUrlList[0])
+            .cell
+              a.cell__inner(href="")
+                .cell__image-wrap
+                  img.cell__product-image(src=productImgPath, alt="")
+                  .cell__image--hover-view
+                    .hover-view
+                      .hover-view__text SHOW DETAIL
+                .cell__detail
+                  .cell__detail--name #{product.productName}
+                  .cell__detail--color #{product.productColor}
+              
 
       .glasses-section__card.card.card--6
         .glasses-section__inner
