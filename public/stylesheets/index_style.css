@@ -378,4 +378,102 @@
     .sunglasses-section .card--4 .grid-view__horizontal .cell__detail-wrap {
       width: 70%; }
 
+.sunglasses-section .card--6 {
+  margin-bottom: 80px; }
+  .sunglasses-section .card--6 .sunglasses-section__footer {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 80vh; }
+  .sunglasses-section .card--6 .sunglasses-section__top {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%; }
+    .sunglasses-section .card--6 .sunglasses-section__top--link {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 32px;
+      width: 200px;
+      margin-right: 80px;
+      box-sizing: border-box; }
+      .sunglasses-section .card--6 .sunglasses-section__top--link .link--paragraph {
+        color: #C2C2D6;
+        font-size: 1.6em;
+        padding-left: 32px;
+        border-left: 1px solid #6668E2;
+        box-sizing: border-box; }
+      .sunglasses-section .card--6 .sunglasses-section__top--link .link--image-wrap {
+        display: flex;
+        justify-content: flex-end; }
+    .sunglasses-section .card--6 .sunglasses-section__top--image-wrap {
+      flex-grow: 1;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-start;
+      height: 100%;
+      width: 70%;
+      margin: 0 50px;
+      background-image: url("../images/glasses/shoreditch-blue-front.jpg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover; }
+      .sunglasses-section .card--6 .sunglasses-section__top--image-wrap .description-wrap {
+        padding: 0 0 160px 32px;
+        font-size: 3.6em;
+        width: 55%;
+        text-align: right; }
+  .sunglasses-section .card--6 .sunglasses-section__bottom {
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 32px;
+    border-top: 1px solid #6668E2;
+    padding: 16px 32px; }
+    .sunglasses-section .card--6 .sunglasses-section__bottom .bottom__text {
+      color: #C2C2D6;
+      font-size: 1.4em; }
+
+.footer {
+  background-color: #6668E2;
+  overflow: hidden; }
+  .footer h2, .footer p {
+    color: white;
+    text-align: right; }
+  .footer .footer__top {
+    display: flex;
+    flex-direction: row; }
+    .footer .footer__top h2 {
+      font-size: 5.6em;
+      margin: 16px 0; }
+    .footer .footer__top p {
+      font-size: 2em;
+      margin-top: 16px; }
+    .footer .footer__top--left {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      width: 48%;
+      margin: 40px; }
+      .footer .footer__top--left .paragraph-wrap {
+        width: 64%; }
+    .footer .footer__top--right img {
+      transform: scale(1.6) translate(200px, 100px); }
+  .footer .line--horizontal {
+    height: 1px;
+    width: 100%;
+    position: relative;
+    left: -20%;
+    background-color: white; }
+  .footer .footer__bottom {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    height: 320px; }
+    .footer .footer__bottom h2 {
+      text-align: left;
+      font-size: 20em;
+      white-space: nowrap; }
+
 /*# sourceMappingURL=index_style.css.map */

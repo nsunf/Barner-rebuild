@@ -580,3 +580,159 @@
         }
     }
 }
+
+.sunglasses-section .card--6 {
+    margin-bottom: 80px;
+    .sunglasses-section__footer {
+        display: flex;
+        flex-direction: column;
+
+        width: 100vw;
+        height: 80vh;
+    }
+
+    .sunglasses-section__top {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+
+        width: 100%;
+        height: 100%;
+
+        &--link {
+            flex-grow: 1;
+
+            display: flex;
+            flex-direction: column;
+
+            padding: 32px;
+            width: 200px;
+            margin-right: 80px;
+            box-sizing: border-box;
+
+            .link--paragraph {
+                color: $sub-color;
+
+                font-size: 1.6em;
+
+                padding-left: 32px;
+                border-left: 1px solid $main-color;
+                box-sizing: border-box;
+            }
+
+            .link--image-wrap {
+                display: flex;
+                justify-content: flex-end;
+            }
+        }
+
+        &--image-wrap {
+            flex-grow: 1;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-start;
+
+            height: 100%;
+            width: 70%;
+
+            margin: 0 50px;
+
+            background-image: url("../images/glasses/shoreditch-blue-front.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+
+            .description-wrap {
+                padding: 0 0 160px 32px;
+                font-size: 3.6em;
+                width: 55%;
+
+                text-align: right;
+            }
+        }
+    }
+
+    .sunglasses-section__bottom {
+        display: flex;
+        justify-content: space-between;
+
+        margin: 40px 32px;
+        border-top: 1px solid $main-color;
+        padding: 16px 32px;
+
+        .bottom__text {
+            color: $sub-color;
+            font-size: 1.4em;
+        }
+    }
+}
+
+.footer {
+    background-color: $main-color;
+
+    overflow: hidden;
+
+    h2, p {
+            color: white;
+            text-align: right;
+        }
+
+    .footer__top {
+        display: flex;
+        flex-direction: row;
+
+        h2 {
+            font-size: 5.6em;
+            margin: 16px 0;
+        }
+
+        p {
+            font-size: 2em;
+            margin-top: 16px;
+        }
+
+        &--left {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+
+            width: 48%;
+            margin: 40px;
+            .paragraph-wrap {
+                width:  64%;
+            }
+        }
+
+        &--right {
+            .image-wrap {
+
+            }
+            img {
+                transform: scale(1.6) translate(200px, 100px);
+            }
+        }
+    }
+
+    .line--horizontal {
+        height: 1px;
+        width: 100%;
+
+        position: relative;
+        left: -20%;
+
+        background-color: white;
+    }
+
+    .footer__bottom {
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+
+        height: 320px;
+        h2 {
+            text-align: left;
+            font-size: 20em;
+            white-space: nowrap;
+        }
+    }
+}

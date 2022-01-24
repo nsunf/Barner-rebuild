@@ -174,54 +174,82 @@ block content
             use(href="#text_sunglasses" fill="#fff" style="mix-blend-mode: overlay;" mask="url(#mask)")
             image(href="../images/sunglasses_frame_nose.png" x="50%" y="50%" width="70%" style="transform: translate(-35%, -20%);")
 
-        .sunglasses-section__card.card.card--2
-          .card__inner
-            .card__image-box
-              .img-wrap
-                img(src="../images/glasses/RECOLETA-SILVER-SIDE.jpg" alt="image")
-            .card__description-box
-              .line.line--horizontal
-              .description-box__division
-                p.description-box__description.description.description--short New-in Sunglasses
-                .line.line--vertical 
-                .description-wrap
-                  p.description-box__description.description.description--long What are blue light glasses?<br/>
-                    | Blue light glasses are specifically designed to protect our eyes against overexposure to the artificial blue light that is emitted by our digital devices. Computer glasses help us to avoid the potential side effects of Computer Vision Syndrome and to ensure that our eyes feel rested after long hours in front of our screens.
-        
-        .sunglasses-section__card.card.card--3 
-          .card__inner 
-            .card__description-box 
-              .line.line--horizontal 
-              .description-box__division
-                h2.description-box__subtitle.subtitle WHY SCREEN GLASSES
-                p.description-box__description.description We live totally surrounded by screens, spending almost nine hours a day, on average, in front of digital devices. All these devices emit blue light, and since our eyes aren't protected against this overexposure, the light can be detrimental.
-            .card__image-box 
-              .img-wrap 
-                img(src="../images/glasses/GINZA-BLACK-NOIR-SIDE-WOMAN.jpg" alt="image")
+      .sunglasses-section__card.card.card--2
+        .card__inner
+          .card__image-box
+            .img-wrap
+              img(src="../images/glasses/RECOLETA-SILVER-SIDE.jpg" alt="image")
+          .card__description-box
+            .line.line--horizontal
+            .description-box__division
+              p.description-box__description.description.description--short New-in Sunglasses
+              .line.line--vertical 
+              .description-wrap
+                p.description-box__description.description.description--long What are blue light glasses?<br/>
+                  | Blue light glasses are specifically designed to protect our eyes against overexposure to the artificial blue light that is emitted by our digital devices. Computer glasses help us to avoid the potential side effects of Computer Vision Syndrome and to ensure that our eyes feel rested after long hours in front of our screens.
+      
+      .sunglasses-section__card.card.card--3 
+        .card__inner 
+          .card__description-box 
+            .line.line--horizontal 
+            .description-box__division
+              h2.description-box__subtitle.subtitle WHY SCREEN GLASSES
+              p.description-box__description.description We live totally surrounded by screens, spending almost nine hours a day, on average, in front of digital devices. All these devices emit blue light, and since our eyes aren't protected against this overexposure, the light can be detrimental.
+          .card__image-box 
+            .img-wrap 
+              img(src="../images/glasses/GINZA-BLACK-NOIR-SIDE-WOMAN.jpg" alt="image")
 
-        .sunglasses-section__card.card.card--4 
-          .card__inner.product-grid-view
-            - let randomNumsForSunglasses = getRandomNumArr(4, sunglasses_data.length - 1); 
-            .grid-view.grid-view__vertical
-              each val in [0, 1, 2]
-                - 
-                  let product = sunglasses_data[val];
-                  let productImgPath = '../images/glasses/' + getFileNameFromImgURL(product.imgUrlList[0]);
-                a.cell(href="")
-                  .cell__img-wrap 
-                    img(src=productImgPath, alt="image")
-                  .cell__detail-wrap
-                    .cell-detail 
-                      .cell-detail__text.cell-detail__text--name #{product.productName}
-                      .cell-detail__text.cell-detail__text--color #{product.productColor}
-            .grid-view.grid-view__horizontal
+      .sunglasses-section__card.card.card--4 
+        .card__inner.product-grid-view
+          - let randomNumsForSunglasses = getRandomNumArr(4, sunglasses_data.length - 1); 
+          .grid-view.grid-view__vertical
+            each val in [0, 1, 2]
               - 
-                let product = sunglasses_data[3];
+                let product = sunglasses_data[val];
                 let productImgPath = '../images/glasses/' + getFileNameFromImgURL(product.imgUrlList[0]);
               a.cell(href="")
-                .cell__img-wrap.cell__img-wrap--horizontal
-                  img(src=productImgPath alt="image")
+                .cell__img-wrap 
+                  img(src=productImgPath, alt="image")
                 .cell__detail-wrap
-                  .cell-detail
+                  .cell-detail 
                     .cell-detail__text.cell-detail__text--name #{product.productName}
                     .cell-detail__text.cell-detail__text--color #{product.productColor}
+          .grid-view.grid-view__horizontal
+            - 
+              let product = sunglasses_data[3];
+              let productImgPath = '../images/glasses/' + getFileNameFromImgURL(product.imgUrlList[0]);
+            a.cell(href="")
+              .cell__img-wrap.cell__img-wrap--horizontal
+                img(src=productImgPath alt="image")
+              .cell__detail-wrap
+                .cell-detail
+                  .cell-detail__text.cell-detail__text--name #{product.productName}
+                  .cell-detail__text.cell-detail__text--color #{product.productColor}
+
+      .sunglasses-section__card.card.card--6
+        .sunglasses-section__inner.sunglasses-section__footer 
+          .sunglasses-section__top
+            a.sunglasses-section__top--link(href="")
+              p.link--paragraph Browse more glasses. There are a lot of sunglasses
+              .link--image-wrap
+                img.image--arrow(src="https://img.icons8.com/external-kmg-design-glyph-kmg-design/64/6668E2/external-right-arrow-arrows-kmg-design-glyph-kmg-design-1.png")
+            .sunglasses-section__top--image-wrap
+              .description-wrap
+                p.description Round sunglasses have never been so stylish!
+          .sunglasses-section__bottom
+            span.bottom__text.text--bluelight-glasses Sunglasses
+            span.bottom__text.text--barner Barner
+    section.footer
+      .footer__inner 
+        .footer__top
+          .footer__top--left
+            h2 WE ARE A B CORP
+            .paragraph-wrap
+              p Social consciousness is at the core of Barner’s brand values, which is why we’re so proud to be a certified B corporation! Being a B Corp means that our company has been recognized for going above and beyond basic corporate social responsibility, and that our efforts are having a real impact globally.<br/><br/>
+                | Companies can obtain B Corp status by completing a 200-questionnaire that assesses everything from company structure and working conditions to sustainability initiatives and community action.
+          .footer__top--right
+            .image-wrap 
+              img(src="../images/glasses_icon.svg", alt="glasses")
+        .line--horizontal
+        .footer__bottom
+          h2 Barner Barner
