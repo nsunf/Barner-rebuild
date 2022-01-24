@@ -1,0 +1,150 @@
+@import './variables.scss';
+
+.main__top {
+    position: relative;
+    margin: 0 40px;
+    border-bottom: 1px solid $main-color;
+
+    .top__image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        height: 80vh;
+
+        &--glasses {
+            width: 48%;
+        }
+    }
+
+    .top__context {
+        position: absolute;
+        bottom: 0;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        
+        width: 100%;
+    }
+
+    .context__text {
+        &--head {
+            font-size: 3.2em;
+            width: 300px;
+        }
+
+        &--paragraph {
+            font-size: 1.4em;
+        }
+    }
+}
+
+.main__body {
+    .body__inner {
+        margin: 20px 40px;
+    }
+
+    .body__nav {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+
+        .nav__btn--sort {
+            width: 40px;
+        }
+    }
+
+    .option {
+        display: flex;
+        margin: 0 40px;
+
+        gap: 20px;
+
+        &__text {
+            font-size: 1.2em;
+        }
+
+        &__img {
+            width: 20px;
+
+            &--arrow-up {
+                transform: rotate(-90deg);
+            }
+            &--arrow-down {
+                transform: rotate(90deg);
+            }
+        }
+    }
+
+    .body__products-list {
+        .products-list__inner {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 64px;
+        }
+
+        .cell {
+            width: calc(100% / 3);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &__link {
+                margin: 2%;
+                position: relative;
+                overflow: hidden;
+
+                background-color: white;
+            }
+            &__product-img {
+                width: 100%;
+                transition: 200ms ease-in-out;
+            }
+            &__context {
+                position: absolute;
+                bottom: 0;
+
+                width: 100%;
+                padding: 16px;
+                box-sizing: border-box;
+
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-end;
+            }
+
+            .context__text {
+                &--name {
+                    font-size: 1.4em;
+                }
+                &--color {
+                    font-size: 1.1em;
+                    color: $sub-color;
+                }
+            }
+
+            &:hover {
+                .cell__product-img {
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+}
+
+.main__footer {
+    background-color: $main-color;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 120px;
+    margin-top: 80px;
+    a {
+        color: white;
+        font-size: 4em;
+    }
+}

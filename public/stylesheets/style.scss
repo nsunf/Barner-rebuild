@@ -76,6 +76,15 @@ ul {
                 color: white;
             }
         }
+
+        
+    }
+    
+    .isSelected {
+        a {
+            background-color: $main-color;
+            color: white;
+        }
     }
 }
 

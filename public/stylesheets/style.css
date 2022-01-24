@@ -50,6 +50,9 @@ ul {
     .nav__list .nav__item:hover a {
       background-color: #6668E2;
       color: white; }
+  .nav__list .isSelected a {
+    background-color: #6668E2;
+    color: white; }
 
 .header__cart, .header__search {
   margin-right: 12px;

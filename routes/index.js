@@ -14,4 +14,19 @@ router.get('/', function(req, res, next) {
   })
 });
 
+router.get('/products/:category', function(req, res, next) {
+  let cat = req.params.category;
+  if (cat == 'Eyeglasses') {
+    fs.readFile('public/javascripts/glasses_products_data.json', 'utf-8', (err, data) => {
+      let decodedData = JSON.parse(data);
+      res.render('products', { title: req.params.category, product_data: decodedData })
+    })
+  } else if (cat == 'Sunglasses') {
+    fs.readFile('public/javascripts/sunglasses_products_data.json', 'utf-8', (err, data) => {
+      let decodedData = JSON.parse(data);
+      res.render('products', { title: req.params.category, product_data: decodedData })
+    })
+  }
+})
+
 module.exports = router;

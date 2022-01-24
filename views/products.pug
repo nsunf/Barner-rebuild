@@ -1,0 +1,54 @@
+extends layout 
+
+block styles 
+  link(rel='stylesheet', href='/stylesheets/products_style.css')
+
+block content 
+  -
+    function getFileNameFromImgURL(url) {
+        let startIndex = url.indexOf('products/');
+        let endIndex = url.indexOf('?v=');
+        return url.slice(startIndex + 9, endIndex);
+    }
+  main.main
+    - let isEyeglasses = title == "Eyeglasses"; 
+    section.main__top.top
+      .top__image
+        if isEyeglasses
+            img.top__image--glasses(src="../images/glasses_icon_blue.svg", alt="image")
+        else
+            img.top__image--glasses(src="../images/sunglasses_icon_blue.svg", alt="image")
+      .top__context
+        h2.context__text.context__text--head #{isEyeglasses ? "BLUE LIGHT BLOCKING GLASSES" : "Sunglasses"}
+        p.context__text.context__text--paragraph #{isEyeglasses ? "Keep your eyes protected while being completely stylish at it." : "Soak up some sun with our UVA & UVB protection sunglasses collection!"}
+
+    section.main__body.body
+      .body__inner
+        .body__nav
+          img.nav__btn--sort(src="../images/carbon_sort-descending.svg", alt="image")
+          ul.option.folded
+            li.option__item
+              span.option__text ABC 
+              img.option__img.option__img--arrow-down(src="https://img.icons8.com/external-kmg-design-glyph-kmg-design/64/6668E2/external-right-arrow-arrows-kmg-design-glyph-kmg-design-1.png", alt="")
+            li.option__item
+              span.option__text ABC 
+              img.option__img.option__img--arrow-up(src="https://img.icons8.com/external-kmg-design-glyph-kmg-design/64/6668E2/external-right-arrow-arrows-kmg-design-glyph-kmg-design-1.png", alt="")
+            li.option__item
+              span.option__text Price 
+              img.option__img.option__img--arrow-down(src="https://img.icons8.com/external-kmg-design-glyph-kmg-design/64/6668E2/external-right-arrow-arrows-kmg-design-glyph-kmg-design-1.png", alt="")
+            li.option__item
+              span.option__text Price 
+              img.option__img.option__img--arrow-up(src="https://img.icons8.com/external-kmg-design-glyph-kmg-design/64/6668E2/external-right-arrow-arrows-kmg-design-glyph-kmg-design-1.png", alt="")
+      .body__products-list
+        .products-list__inner 
+          each product in product_data
+            .cell
+              a.cell__link(href="") 
+                img.cell__product-img(src="../images/glasses/" + getFileNameFromImgURL(product.imgUrlList[0]), alt="")
+                .cell__context 
+                  span.context__text.context__text--name #{product.productName}
+                  span.context__text.context__text--price #{product.productPrice}
+                  span.context__text.context__text--color #{product.productColor}
+
+    section.main__footer
+      a(href="/") Back to Main

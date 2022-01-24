@@ -5,22 +5,28 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
     block styles
   body
+    mixin isSelected(catName, isProduct)
+      - let path = isProduct ? "products/" : ""
+      if title == catName 
+        li.nav__item.isSelected
+          a.isSelected(href="/" + path + catName) #{catName}
+      else
+        li.nav__item
+          a(href="/" + path + catName) #{catName}
+
     header.header
       .header__inner
         .header__nav.header__nav-left
           ul.nav__list
-            li.nav__item.nav__item--eyeglasses
-              a(href="") Eyeglasses
-            li.nav__item.nav__item--sunglasses
-              a(href="") Sunglasses
+            + isSelected("Eyeglasses", true)
+            + isSelected("Sunglasses", true)
         .header__logo
           .logo 
             h1 
-              a(href="") Barner
+              a(href="/") Barner
         .header__nav.header__nav-right
           ul.nav__list
-            li.nav__item.nav__item--about-us
-              a(href="") About-Us
+            + isSelected("About-Us")
           .header__cart
             a(href="") 
               svg(viewbox="0 0 24 24" width="32px" height="32px")
