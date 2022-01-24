@@ -4,173 +4,378 @@
 .description {
   font-size: 1.4em; }
 
-.card--1 .glasses-section__section-header {
-  height: 90vh;
-  margin: 0 50px; }
-  .card--1 .glasses-section__section-header .glasses {
-    width: 100%;
-    background-color: #fff; }
+.card {
+  margin: 160px 0; }
 
-.card--2 {
+.glasses-section .card--1 {
+  margin-top: 0; }
+  .glasses-section .card--1 .glasses-section__section-header {
+    height: 90vh;
+    margin: 0 50px; }
+    .glasses-section .card--1 .glasses-section__section-header .glasses {
+      width: 100%;
+      background-color: #fff; }
+
+.glasses-section .card--2 {
   width: 100%;
   height: 90vh; }
-  .card--2 .card__inner {
+  .glasses-section .card--2 .card__inner {
     display: flex;
-    margin: 80px 0;
     height: 100%;
     align-items: stretch; }
-  .card--2 .card__description-box {
+  .glasses-section .card--2 .card__description-box {
     flex-basis: 28%;
     flex-shrink: 0;
     padding: 0 0 0 160px; }
-  .card--2 .card__image-box {
+  .glasses-section .card--2 .card__image-box {
     flex-grow: 1;
     display: flex;
     flex-direction: column; }
-    .card--2 .card__image-box .image-box__division {
+    .glasses-section .card--2 .card__image-box .image-box__division {
       flex-grow: 1;
       display: flex; }
-      .card--2 .card__image-box .image-box__division .img-wrap {
+      .glasses-section .card--2 .card__image-box .image-box__division .img-wrap {
         width: 100%; }
-        .card--2 .card__image-box .image-box__division .img-wrap img {
+        .glasses-section .card--2 .card__image-box .image-box__division .img-wrap img {
           width: 100%;
           padding: 0 8%;
           box-sizing: border-box; }
-  .card--2 .line--horizontal {
+  .glasses-section .card--2 .line--horizontal {
     margin-bottom: 64px;
     height: 1px; }
-  .card--2 .line--vertical {
+  .glasses-section .card--2 .line--vertical {
     margin: 0 0 0 180px;
     width: 1px; }
 
-.card--3 .card__inner {
+.glasses-section .card--3 .card__inner {
   display: flex;
   flex-direction: row; }
 
-.card--3 .card__image-box {
+.glasses-section .card--3 .card__image-box {
   flex-basis: 80%;
   display: flex;
   flex-direction: row; }
-  .card--3 .card__image-box .image-wrap {
+  .glasses-section .card--3 .card__image-box .image-wrap {
     flex-grow: 1;
     flex-shrink: 1;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0 40px; }
-    .card--3 .card__image-box .image-wrap:first-child {
+    .glasses-section .card--3 .card__image-box .image-wrap:first-child {
       transform: translateY(-100px);
       padding-left: 80px; }
-    .card--3 .card__image-box .image-wrap:nth-child(2) {
+    .glasses-section .card--3 .card__image-box .image-wrap:nth-child(2) {
       flex-basis: 60%;
       padding-right: 16px; }
-    .card--3 .card__image-box .image-wrap img {
+    .glasses-section .card--3 .card__image-box .image-wrap img {
       width: 100%;
       aspect-ratio: 3 / 4;
       object-fit: cover; }
 
-.card--3 .card__description-box {
+.glasses-section .card--3 .card__description-box {
   flex-shrink: 1;
   flex-basis: 20%;
   padding: 0 100px 0 0;
   display: flex;
   align-items: center; }
-  .card--3 .card__description-box .description {
+  .glasses-section .card--3 .card__description-box .description {
     padding-top: 60%;
     margin: 120px 0; }
 
-.card--4 .glasses-section__inner {
-  margin: 160px 40px;
+.glasses-section .card--4 .glasses-section__inner {
+  margin: 0 40px;
   display: flex; }
 
-.card--4 .card__description-box {
+.glasses-section .card--4 .card__description-box {
   flex-basis: 45%;
   padding: 0 40px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: flex-end; }
-  .card--4 .card__description-box .line--horizontal {
+  .glasses-section .card--4 .card__description-box .line--horizontal {
     height: 1px;
     width: 100%;
     margin: 40px 0; }
-  .card--4 .card__description-box .description {
+  .glasses-section .card--4 .card__description-box .description {
     text-align: right; }
 
-.card--4 .card__image-box {
+.glasses-section .card--4 .card__image-box {
   display: flex; }
-  .card--4 .card__image-box .image-wrap {
+  .glasses-section .card--4 .card__image-box .image-wrap {
     width: 50%; }
-    .card--4 .card__image-box .image-wrap img {
+    .glasses-section .card--4 .card__image-box .image-wrap img {
       width: 100%;
       aspect-ratio: 3/4;
       object-fit: cover; }
-  .card--4 .card__image-box .keywords-wrap {
+  .glasses-section .card--4 .card__image-box .keywords-wrap {
     display: flex;
     flex-direction: column;
     border-left: 1px solid #6668E2;
     margin-left: 32px; }
-    .card--4 .card__image-box .keywords-wrap .keywords__el {
+    .glasses-section .card--4 .card__image-box .keywords-wrap .keywords__el {
       flex-grow: 1;
       border-top: 1px solid #6668E2;
       padding: 4px 16px;
       display: flex;
       justify-content: center;
       align-items: center; }
-      .card--4 .card__image-box .keywords-wrap .keywords__el:first-child {
+      .glasses-section .card--4 .card__image-box .keywords-wrap .keywords__el:first-child {
         border: none; }
-      .card--4 .card__image-box .keywords-wrap .keywords__el .keywords__text {
+      .glasses-section .card--4 .card__image-box .keywords-wrap .keywords__el .keywords__text {
         writing-mode: vertical-lr;
         font-size: 1.1em; }
 
-.card--5 {
+.glasses-section .card--5 {
   width: 100%; }
-  .card--5 .glasses-section__horizontal-scroll-view {
+  .glasses-section .card--5 .glasses-section__horizontal-scroll-view {
     display: flex;
     flex-direction: row;
     width: 100%;
     overflow-x: auto; }
-  .card--5 .cell {
+  .glasses-section .card--5 .cell {
     padding: 0 100px;
     margin: 80px 0;
     border-right: 1px solid #6668E2; }
-    .card--5 .cell__inner:hover .cell__image--hover-view {
+    .glasses-section .card--5 .cell__inner:hover .cell__image--hover-view {
       height: 90px; }
-    .card--5 .cell__image-wrap {
+    .glasses-section .card--5 .cell__image-wrap {
       display: flex;
       justify-content: center;
       align-items: center;
       width: 342.85714px;
       overflow: hidden;
       position: relative; }
-      .card--5 .cell__image-wrap .cell__product-image {
+      .glasses-section .card--5 .cell__image-wrap .cell__product-image {
         width: 800px;
         object-fit: cover;
         transform: rotate(90deg); }
-      .card--5 .cell__image-wrap .cell__image--hover-view {
+      .glasses-section .card--5 .cell__image-wrap .cell__image--hover-view {
         width: 100%;
         height: 3%;
         overflow: hidden;
         position: absolute;
         top: 0;
         left: 0;
-        transition: all 500ms cubic-bezier(0.55, 0.085, 0.68, 0.53); }
-        .card--5 .cell__image-wrap .cell__image--hover-view .hover-view {
+        transition: all 250ms cubic-bezier(0.55, 0.085, 0.68, 0.53); }
+        .glasses-section .card--5 .cell__image-wrap .cell__image--hover-view .hover-view {
           width: 100%;
           height: 90px;
           background: #6668E2;
           display: flex;
           justify-content: center;
           align-items: center; }
-          .card--5 .cell__image-wrap .cell__image--hover-view .hover-view__text {
+          .glasses-section .card--5 .cell__image-wrap .cell__image--hover-view .hover-view__text {
             color: white;
             font-size: 1.6em; }
-    .card--5 .cell__detail {
+    .glasses-section .card--5 .cell__detail {
       margin-top: 40px; }
-      .card--5 .cell__detail--name {
+      .glasses-section .card--5 .cell__detail--name {
         font-size: 1.5em; }
-      .card--5 .cell__detail--color {
+      .glasses-section .card--5 .cell__detail--color {
         font-size: 1.2em;
         color: #C2C2D6; }
+
+.glasses-section .card--6 {
+  margin-bottom: 80px; }
+  .glasses-section .card--6 .glasses-section__footer {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 80vh; }
+  .glasses-section .card--6 .glasses-section__top {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%; }
+    .glasses-section .card--6 .glasses-section__top--link {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 32px;
+      width: 200px;
+      margin-right: 80px;
+      box-sizing: border-box; }
+      .glasses-section .card--6 .glasses-section__top--link .link--paragraph {
+        color: #C2C2D6;
+        font-size: 1.6em;
+        padding-left: 32px;
+        border-left: 1px solid #6668E2;
+        box-sizing: border-box; }
+      .glasses-section .card--6 .glasses-section__top--link .link--image-wrap {
+        display: flex;
+        justify-content: flex-end; }
+    .glasses-section .card--6 .glasses-section__top--image-wrap {
+      flex-grow: 1;
+      display: flex;
+      align-items: flex-end;
+      height: 100%;
+      width: 70%;
+      margin: 0 50px;
+      background-image: url("../images/glasses/Gracia_Crystal_Front_489df5fa-5968-48b1-9a1f-442e91a5d86a.jpg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover; }
+      .glasses-section .card--6 .glasses-section__top--image-wrap .description-wrap {
+        padding: 0 0 160px 32px;
+        font-size: 3.6em;
+        width: 55%; }
+  .glasses-section .card--6 .glasses-section__bottom {
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 32px;
+    border-top: 1px solid #6668E2;
+    padding: 16px 32px; }
+    .glasses-section .card--6 .glasses-section__bottom .bottom__text {
+      color: #C2C2D6;
+      font-size: 1.4em; }
+
+.sunglasses-section .card--1 {
+  margin-top: 0; }
+  .sunglasses-section .card--1 .sunglasses-section__section-header {
+    height: 90vh;
+    margin: 0 50px; }
+    .sunglasses-section .card--1 .sunglasses-section__section-header .sunglasses {
+      width: 100%;
+      background-color: #fff; }
+
+.sunglasses-section .card--2 {
+  width: 100%;
+  height: 90vh; }
+  .sunglasses-section .card--2 .card__inner {
+    display: flex;
+    height: 100%;
+    align-items: stretch; }
+  .sunglasses-section .card--2 .card__image-box {
+    flex-grow: 1; }
+    .sunglasses-section .card--2 .card__image-box .img-wrap {
+      padding: 0 80px 0 160px; }
+      .sunglasses-section .card--2 .card__image-box .img-wrap img {
+        width: 100%;
+        aspect-ratio: 3 / 4;
+        object-fit: cover;
+        transform: translateY(-40px); }
+  .sunglasses-section .card--2 .card__description-box {
+    flex-basis: 45%;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column; }
+    .sunglasses-section .card--2 .card__description-box .line--horizontal {
+      height: 1px;
+      width: 100%;
+      margin-bottom: 40px; }
+    .sunglasses-section .card--2 .card__description-box .line--vertical {
+      width: 1px;
+      margin: 0 40px;
+      flex-shrink: 0; }
+    .sunglasses-section .card--2 .card__description-box .description-box__division {
+      flex-grow: 1;
+      display: flex;
+      padding: 0 40px; }
+      .sunglasses-section .card--2 .card__description-box .description-box__division .description-wrap {
+        flex-shrink: 1;
+        display: flex;
+        align-items: flex-end; }
+      .sunglasses-section .card--2 .card__description-box .description-box__division .description--long {
+        margin-bottom: 160px; }
+
+.sunglasses-section .card--3 {
+  width: 100%;
+  height: 90vh; }
+  .sunglasses-section .card--3 .card__inner {
+    display: flex;
+    height: 100%; }
+  .sunglasses-section .card--3 .line--horizontal {
+    width: 100%;
+    height: 1px;
+    margin: 120px 120px 120px 0; }
+  .sunglasses-section .card--3 .card__description-box {
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-right: 80px; }
+    .sunglasses-section .card--3 .card__description-box .description-box__division {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end; }
+      .sunglasses-section .card--3 .card__description-box .description-box__division h2 {
+        text-align: right;
+        margin: 32px 0; }
+      .sunglasses-section .card--3 .card__description-box .description-box__division p {
+        text-align: right;
+        width: 28%; }
+  .sunglasses-section .card--3 .card__image-box {
+    flex-grow: 1; }
+    .sunglasses-section .card--3 .card__image-box .img-wrap {
+      margin: 0 160px 0 80px; }
+      .sunglasses-section .card--3 .card__image-box .img-wrap img {
+        width: 80%;
+        aspect-ratio: 3 / 4;
+        object-fit: cover; }
+
+.sunglasses-section .card--4 .product-grid-view {
+  display: flex;
+  flex-direction: row;
+  margin: 0 0 0 80px; }
+
+.sunglasses-section .card--4 .grid-view .cell {
+  display: flex; }
+  .sunglasses-section .card--4 .grid-view .cell__img-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; }
+    .sunglasses-section .card--4 .grid-view .cell__img-wrap img {
+      object-fit: cover; }
+  .sunglasses-section .card--4 .grid-view .cell .cell-detail__text--name {
+    font-size: 1.4em; }
+  .sunglasses-section .card--4 .grid-view .cell .cell-detail__text--color {
+    font-size: 1.2em;
+    color: #C2C2D6; }
+
+.sunglasses-section .card--4 .grid-view__vertical {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 80px; }
+  .sunglasses-section .card--4 .grid-view__vertical .cell {
+    border-bottom: 1px solid #6668E2;
+    display: flex;
+    align-items: flex-end; }
+    .sunglasses-section .card--4 .grid-view__vertical .cell__img-wrap {
+      flex-grow: 1;
+      aspect-ratio: 21 / 9;
+      margin: 0 16px 32px 0; }
+      .sunglasses-section .card--4 .grid-view__vertical .cell__img-wrap img {
+        width: 100%; }
+    .sunglasses-section .card--4 .grid-view__vertical .cell__detail-wrap {
+      width: 20%;
+      padding: 0 0 32px 16px;
+      border-left: 1px solid #6668E2; }
+
+.sunglasses-section .card--4 .grid-view__horizontal {
+  width: 40%;
+  flex-grow: 0;
+  padding-left: 80px; }
+  .sunglasses-section .card--4 .grid-view__horizontal .cell {
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-left: 1px solid #6668E2; }
+    .sunglasses-section .card--4 .grid-view__horizontal .cell__img-wrap {
+      flex-grow: 1;
+      width: 70%; }
+      .sunglasses-section .card--4 .grid-view__horizontal .cell__img-wrap img {
+        height: 100%;
+        transform: rotate(90deg); }
+    .sunglasses-section .card--4 .grid-view__horizontal .cell__detail-wrap {
+      width: 70%; }
 
 /*# sourceMappingURL=index_style.css.map */

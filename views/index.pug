@@ -4,6 +4,35 @@ block styles
   link(rel='stylesheet', href='/stylesheets/index_style.css')
 
 block content
+  -
+    function getFileNameFromImgURL(url) {
+        let startIndex = url.indexOf('products/');
+        let endIndex = url.indexOf('?v=');
+        return url.slice(startIndex + 9, endIndex);
+    }
+
+  - 
+    function getRandomNumArr(cnt, maxNum) {
+      var productsNums = [];
+      while (productsNums.length < cnt) {
+        let randomInset = Math.random() * maxNum;
+        let randomNum = Math.round(randomInset);
+        if (!productsNums.includes(randomNum)) {
+          productsNums.push(randomNum);
+        }
+      }
+      return productsNums;
+    }
+    //- var productsNums = [];
+    //- let maxNum = glasses_data.length - 1; 
+    //- while (productsNums.length < 5) {
+    //-   let randomInset = Math.random() * maxNum;
+    //-   let randomNum = Math.round(randomInset);
+    //-   if (!productsNums.includes(randomNum)) {
+    //-     productsNums.push(randomNum);
+    //-   }
+    //- }
+
   main
     section.glasses-section
 
@@ -77,25 +106,8 @@ block content
 
       .glasses-section__card.card.card--5
         .glasses-section__inner.glasses-section__horizontal-scroll-view
-          - 
-            var productsNums = [];
-            let maxNum = glasses_data.length - 1; 
-            while (productsNums.length < 5) {
-              let randomInset = Math.random() * maxNum;
-              let randomNum = Math.round(randomInset);
-              if (!productsNums.includes(randomNum)) {
-                productsNums.push(randomNum);
-              }
-            }
 
-          -
-            function getFileNameFromImgURL(url) {
-                let startIndex = url.indexOf('products/');
-                let endIndex = url.indexOf('?v=');
-                return url.slice(startIndex + 9, endIndex);
-            }
-            
-          each val in productsNums
+          each val in getRandomNumArr(5, glasses_data.length - 1)
             -
               let product = glasses_data[val]
               let productImgPath = '../images/glasses/' + getFileNameFromImgURL(product.imgUrlList[0])
@@ -112,31 +124,104 @@ block content
               
 
       .glasses-section__card.card.card--6
-        .glasses-section__inner
+        .glasses-section__inner.glasses-section__footer 
+          .glasses-section__top
+            a.glasses-section__top--link(href="")
+              p.link--paragraph Browse more glasses. There are a lot of bluelight glasses
+              .link--image-wrap
+                img.image--arrow(src="https://img.icons8.com/external-kmg-design-glyph-kmg-design/64/6668E2/external-right-arrow-arrows-kmg-design-glyph-kmg-design-1.png")
+            .glasses-section__top--image-wrap
+              .description-wrap
+                p.description Discover classic round frames with a fresh twist thanks
+          .glasses-section__bottom
+            span.bottom__text.text--bluelight-glasses Bluelight Glasses
+            span.bottom__text.text--barner Barner
 
+    section.sunglasses-section
+      .sunglasses-section__card.card.card--1
+        .card__inner.sunglasses-section__section-header
+          svg.sunglasses(viewbox="0 0 1080 720" width="100%" height="100%")
+            defs
+              text(
+                id="text_sunglasses"
+                x="50%" 
+                y="50%" 
+                font-size="14em"
+                font-weight="900"
+                font-family="Avenir"
+                text-anchor="middle" 
+                alignment-baseline="central"
+              ) BARNER
+              
+              filter#text-blur
+                feGaussianBlur(stdDeviation="10" x="-50%" y="-50%" width="200%" height="200%")
 
+              filter#light-blur1
+                feGaussianBlur(stdDeviation="15" x="-50%" y="-50%" width="200%" height="200%")
 
-  //- svg(width="100vw" height="100vh")
-  //-   defs
-  //-     text(
-  //-       id="text_sunglasses"
-  //-       x="50vw" 
-  //-       y="50vh" 
-  //-       font-size="256"
-  //-       font-weight="900"
-  //-       font-family="Avenir"
-  //-       text-anchor="middle" 
-  //-     ) BARNER
-  //-     filter(id="text-blur")
-  //-       feGaussianBlur(stdDeviation="10")
-  //-     filter(id="light-blur")
-  //-       feGaussianBlur(stdDeviation="50")
-  //-     filter(id="light-blur2")
-  //-       feGaussianBlur(stdDeviation="100")
+              filter#light-blur2
+                feGaussianBlur(stdDeviation="25" x="-50%" y="-50%" width="200%" height="200%")
 
-  //-   use(href="#text_sunglasses" fill="#fffa87" filter="url(#light-blur2)")
-  //-   use(href="#text_sunglasses" fill="#fffa87" filter="url(#light-blur)")
-  //-   use(href="#text_sunglasses" fill="#fff" filter="url(#text-blur)")
-  //-   image(href="../images/sunglasses_origin.png" x="50%" y="50%" style="transform: translate(-523.5px, -300px);")
-  //-   use(href="#text_sunglasses" fill="#fff" style="mix-blend-mode: overlay;")
-  //-   image(href="../images/sunglasses_frame_nose.png" x="50%" y="50%" style="transform: translate(-523.5px, -300px);")
+              mask#mask 
+                image(href="../images/sunglasses_origin.png" x="50%" y="50%" width="70%" style="transform: translate(-35%, -20%);")
+
+            ellipse(cx="32%" cy="67%" rx="80" ry="20" fill="#000" opacity="0.5" filter="url(#blur)")
+            ellipse(cx="69%" cy="67%" rx="80" ry="20" fill="#000" opacity="0.5" filter="url(#blur)")
+            use(href="#text_sunglasses" fill="#fffa87" filter="url(#light-blur2)")
+            use(href="#text_sunglasses" fill="#fffa87" filter="url(#light-blur1)")
+            use(href="#text_sunglasses" fill="#fff" filter="url(#text-blur)")
+            image(href="../images/sunglasses_origin.png" x="50%" y="50%" width="70%" style="transform: translate(-35%, -20%);")
+            use(href="#text_sunglasses" fill="#fff" style="mix-blend-mode: overlay;" mask="url(#mask)")
+            image(href="../images/sunglasses_frame_nose.png" x="50%" y="50%" width="70%" style="transform: translate(-35%, -20%);")
+
+        .sunglasses-section__card.card.card--2
+          .card__inner
+            .card__image-box
+              .img-wrap
+                img(src="../images/glasses/RECOLETA-SILVER-SIDE.jpg" alt="image")
+            .card__description-box
+              .line.line--horizontal
+              .description-box__division
+                p.description-box__description.description.description--short New-in Sunglasses
+                .line.line--vertical 
+                .description-wrap
+                  p.description-box__description.description.description--long What are blue light glasses?<br/>
+                    | Blue light glasses are specifically designed to protect our eyes against overexposure to the artificial blue light that is emitted by our digital devices. Computer glasses help us to avoid the potential side effects of Computer Vision Syndrome and to ensure that our eyes feel rested after long hours in front of our screens.
+        
+        .sunglasses-section__card.card.card--3 
+          .card__inner 
+            .card__description-box 
+              .line.line--horizontal 
+              .description-box__division
+                h2.description-box__subtitle.subtitle WHY SCREEN GLASSES
+                p.description-box__description.description We live totally surrounded by screens, spending almost nine hours a day, on average, in front of digital devices. All these devices emit blue light, and since our eyes aren't protected against this overexposure, the light can be detrimental.
+            .card__image-box 
+              .img-wrap 
+                img(src="../images/glasses/GINZA-BLACK-NOIR-SIDE-WOMAN.jpg" alt="image")
+
+        .sunglasses-section__card.card.card--4 
+          .card__inner.product-grid-view
+            - let randomNumsForSunglasses = getRandomNumArr(4, sunglasses_data.length - 1); 
+            .grid-view.grid-view__vertical
+              each val in [0, 1, 2]
+                - 
+                  let product = sunglasses_data[val];
+                  let productImgPath = '../images/glasses/' + getFileNameFromImgURL(product.imgUrlList[0]);
+                a.cell(href="")
+                  .cell__img-wrap 
+                    img(src=productImgPath, alt="image")
+                  .cell__detail-wrap
+                    .cell-detail 
+                      .cell-detail__text.cell-detail__text--name #{product.productName}
+                      .cell-detail__text.cell-detail__text--color #{product.productColor}
+            .grid-view.grid-view__horizontal
+              - 
+                let product = sunglasses_data[3];
+                let productImgPath = '../images/glasses/' + getFileNameFromImgURL(product.imgUrlList[0]);
+              a.cell(href="")
+                .cell__img-wrap.cell__img-wrap--horizontal
+                  img(src=productImgPath alt="image")
+                .cell__detail-wrap
+                  .cell-detail
+                    .cell-detail__text.cell-detail__text--name #{product.productName}
+                    .cell-detail__text.cell-detail__text--color #{product.productColor}
