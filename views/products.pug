@@ -10,6 +10,16 @@ block content
         let endIndex = url.indexOf('?v=');
         return url.slice(startIndex + 9, endIndex);
     }
+
+  mixin arrow(isUp)
+    if isUp
+      svg.option__img.option__img--arrow-up(width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg")
+        path(d="M10 38C8.89543 38 8 38.8954 8 40C8 41.1046 8.89543 42 10 42V38ZM71.4142 41.4142C72.1953 40.6332 72.1953 39.3668 71.4142 38.5858L58.6863 25.8579C57.9052 25.0768 56.6389 25.0768 55.8579 25.8579C55.0768 26.6389 55.0768 27.9052 55.8579 28.6863L67.1716 40L55.8579 51.3137C55.0768 52.0948 55.0768 53.3611 55.8579 54.1421C56.6389 54.9232 57.9052 54.9232 58.6863 54.1421L71.4142 41.4142ZM10 42L70 42V38L10 38V42Z" fill="#6668E2")
+
+    else
+      svg.option__img.option__img--arrow-down(width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg")
+        path(d="M10 38C8.89543 38 8 38.8954 8 40C8 41.1046 8.89543 42 10 42V38ZM71.4142 41.4142C72.1953 40.6332 72.1953 39.3668 71.4142 38.5858L58.6863 25.8579C57.9052 25.0768 56.6389 25.0768 55.8579 25.8579C55.0768 26.6389 55.0768 27.9052 55.8579 28.6863L67.1716 40L55.8579 51.3137C55.0768 52.0948 55.0768 53.3611 55.8579 54.1421C56.6389 54.9232 57.9052 54.9232 58.6863 54.1421L71.4142 41.4142ZM10 42L70 42V38L10 38V42Z" fill="#6668E2")
+
   main.main
     - let isEyeglasses = title == "Eyeglasses"; 
     section.main__top.top
@@ -21,29 +31,37 @@ block content
       .top__context
         h2.context__text.context__text--head #{isEyeglasses ? "BLUE LIGHT BLOCKING GLASSES" : "Sunglasses"}
         p.context__text.context__text--paragraph #{isEyeglasses ? "Keep your eyes protected while being completely stylish at it." : "Soak up some sun with our UVA & UVB protection sunglasses collection!"}
+        
 
     section.main__body.body
       .body__inner
         .body__nav
-          img.nav__btn--sort(src="../images/carbon_sort-descending.svg", alt="image")
-          ul.option.folded
-            li.option__item
-              span.option__text ABC 
-              img.option__img.option__img--arrow-down(src="https://img.icons8.com/external-kmg-design-glyph-kmg-design/64/6668E2/external-right-arrow-arrows-kmg-design-glyph-kmg-design-1.png", alt="")
-            li.option__item
-              span.option__text ABC 
-              img.option__img.option__img--arrow-up(src="https://img.icons8.com/external-kmg-design-glyph-kmg-design/64/6668E2/external-right-arrow-arrows-kmg-design-glyph-kmg-design-1.png", alt="")
-            li.option__item
-              span.option__text Price 
-              img.option__img.option__img--arrow-down(src="https://img.icons8.com/external-kmg-design-glyph-kmg-design/64/6668E2/external-right-arrow-arrows-kmg-design-glyph-kmg-design-1.png", alt="")
-            li.option__item
-              span.option__text Price 
-              img.option__img.option__img--arrow-up(src="https://img.icons8.com/external-kmg-design-glyph-kmg-design/64/6668E2/external-right-arrow-arrows-kmg-design-glyph-kmg-design-1.png", alt="")
+          svg.nav__btn--sort(width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg")
+            path(d="M13.5 16.5L14.5605 15.4395L17.25 18.129V3H18.75V18.129L21.4395 15.4395L22.5 16.5L18 21L13.5 16.5Z" fill="#6668E2")
+            path(d="M1.5 4.5H12V6H1.5V4.5Z" fill="#6668E2")
+            path(d="M4.5 9H12V10.5H4.5V9Z" fill="#6668E2")
+            path(d="M7.5 13.5H12V15H7.5V13.5Z" fill="#6668E2")
+
+          .option-wrap.folded
+            ul.option
+              li.option__item.option__item--selected
+                span.option__text ABC 
+                + arrow(true)
+              li.option__item
+                span.option__text ABC 
+                + arrow(false)
+              li.option__item
+                span.option__text Price 
+                + arrow(true)
+              li.option__item
+                span.option__text Price 
+                + arrow(false)
       .body__products-list
         .products-list__inner 
           each product in product_data
+            - let path = "/product/" + product.productName.replace(" ", "_") + "_" + product.productColor.replace(" ", "_");
             .cell
-              a.cell__link(href="") 
+              a.cell__link(href=path) 
                 img.cell__product-img(src="../images/glasses/" + getFileNameFromImgURL(product.imgUrlList[0]), alt="")
                 .cell__context 
                   span.context__text.context__text--name #{product.productName}
