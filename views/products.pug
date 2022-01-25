@@ -59,10 +59,17 @@ block content
       .body__products-list
         .products-list__inner 
           each product in product_data
-            - let path = "/product/" + product.productName.replace(" ", "_") + "_" + product.productColor.replace(" ", "_");
+            - let path = "/product/" + title + "/" + product.productName.replace("í", "i").replace(" ", "_") + "/" + product.productColor.replace(" ", "_");
             .cell
               a.cell__link(href=path) 
-                img.cell__product-img(src="../images/glasses/" + getFileNameFromImgURL(product.imgUrlList[0]), alt="")
+                -
+                  let fileName = product.productName.replace(" ", "_") + "_" + product.productColor.replace(" ", "_") + "_front.jpg";
+
+                if title == "Eyeglasses"
+                  img.cell__product-img(src="../images/glasses/" + fileName, alt="")
+                else
+                  img.cell__product-img(src="../images/sunglasses/" + fileName, alt="")
+
                 .cell__context 
                   span.context__text.context__text--name #{product.productName}
                   span.context__text.context__text--price #{product.productPrice}

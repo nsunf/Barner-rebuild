@@ -29,4 +29,23 @@ router.get('/products/:category', function(req, res, next) {
   }
 })
 
+router.get('/product/:category/:name/:color', function(req, res, next) {
+  let productName = req.params.name.replace("_", " ");
+  let productColor = req.params.color.replace("_", " ");
+
+  if (req.params.category == "Eyeglasses") {
+    fs.readFile('public/javascripts/glasses_products_data.json', 'utf-8', (err, data) => {
+      let decodedData = JSON.parse(data);
+      let productData = decodedData.filter(x => x.productName.replace("í", "i") == productName && x.productColor == productColor)[0];
+      res.render('product_detail', { title: productName + " - " + productColor, product_data_list: decodedData, product_data: productData })
+    })
+  } else if (req.params.category == "Sunglasses") {
+    fs.readFile('public/javascripts/sunglasses_products_data.json', 'utf-8', (err, data) => {
+      let decodedData = JSON.parse(data);
+      let productData = decodedData.filter(x => x.productName == productName && x.productColor == productColor)[0];
+      res.render('products_detail', { title: productName + " - " + productColor, product_data_list: decodedData, product_data: productData })
+    })
+  }
+})
+
 module.exports = router;

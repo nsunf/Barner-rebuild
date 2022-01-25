@@ -1,0 +1,136 @@
+@import './variables.scss';
+
+.main__top {
+    .top__inner {
+        display: flex;
+        flex-direction: row;
+
+        margin: 160px 0;
+    }
+
+    .product {
+        display: flex;
+        margin-left: 270px;
+
+        &__image {
+            width: 50%;
+            img {
+                width: 90%;          
+            }
+        }
+
+        &__shop {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            margin: 40px 0 80px 0;
+            width: 50%;
+
+            .btn {
+                &--add-to-cart {
+                    padding: 20px 120px;
+                    border-radius: 0;
+                    border: none;
+
+                    color: white;
+                    background: $main-color;
+                    font-size: 1.6em;
+
+                    cursor: pointer;
+                    &:hover {
+                        background-color: lighten($color: $main-color, $amount: 10%);
+                    }
+                }
+            }
+        }
+    }
+
+    .product__context {
+        margin-bottom: 32px;
+        .context__title {
+            display: flex;
+            align-items: flex-end;
+
+            &--name {
+                font-size: 4em;
+            }
+
+            &--color {
+                margin-left: 20px;
+                font-size: 1.4em;
+            }
+        }
+        .context__price {
+            display: flex;
+            flex-direction: column;
+            &--og-price {
+                font-size: 2.2em;
+                text-decoration: line-through;
+                color: $sub-color;
+            }
+            &--price {
+                font-size: 3em;
+                color: black;
+            }
+        }
+    }
+
+    .product__description {
+        margin: 40px 0;
+        font-size: 1.6em;
+    }
+
+    .color-set {
+        margin: 40px 0;
+        &__inner {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .color__item {
+            width: 50px;
+            height: 50px;
+            border: 2px solid transparent;
+            padding: 4px;
+            cursor: pointer;
+            &:hover {
+                border: 2px solid $main-color;
+            }
+        }
+    }
+
+    .aside {
+        width: 270px;
+        margin: 0 40px 0 80px;
+        display: flex;
+        justify-content: center;
+
+        &__inner {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            border-left: 1px solid $main-color;
+            margin: 120px 0;
+        }
+
+        .another-product {
+            cursor: pointer;
+            padding: 16px;
+            img {
+                height: 144px;
+            }
+        }
+    }
+}
+
+.line--divider {
+    margin: 80px;
+    height: 1px;
+    background-color: $main-color;
+}
+
+.main__body {
+
+}

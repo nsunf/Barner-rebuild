@@ -1,0 +1,86 @@
+extends layout 
+
+block styles 
+  link(rel='stylesheet', href='/stylesheets/product_detail_style.css')
+
+block content 
+  -
+    function getFileNameFromImgURL(url) {
+      let startIndex = url.indexOf('products/');
+      let endIndex = url.indexOf('?v=');
+      return url.slice(startIndex + 9, endIndex);
+    }
+  .main
+    .main__top 
+      .top__inner
+        .top__product.product 
+          .product__image
+            img(src="../../../images/glasses/" + getFileNameFromImgURL(product_data.imgUrlList[0]), alt="image")
+          .product__shop
+            .product__context
+              .context__title
+                h1.context__title--name=product_data.productName
+                span.context__title--color=product_data.productColor
+              .context__price
+                if product_data.productDisCountedPrice
+                    span.context__price--og-price=product_data.productPrice
+                    span.context__price--price=product_data.productDisCountedPrice
+                else
+                    span.context__price--price=product_data.productPrice
+            .product__description
+              p High quality and stylish computer glasses to protect your eyes from Blue Light of digital devices. It will provide you with better sleep and a healthier life.
+            .product__color-set.color-set
+              .color-set__inner
+                each color in product_data.colorSet
+                  - let path = "../../../images/colorImages/" + color.replace(" ", "-") + ".png";
+                  if color.toLowerCase() == product_data.productColor.toLowerCase()
+                    .color__item.color__item--selected 
+                      svg(viewbox="0 0 32 32" width="50px" hieght="50px")
+                        image(href=path width="50px" height="50px" x="16px" y="16px" style="transform: translate(-25px, -25px)")
+                  else
+                    .color__item 
+                      svg(viewbox="0 0 32 32" width="50px" hieght="50px")
+                        image(href=path width="50px" height="50px" x="16px" y="16px" style="transform: translate(-25px, -25px)")
+            .btn
+              input.btn--add-to-cart(type="button" value="Add To Cart")
+        .top__aside.aside
+          .aside__inner 
+            each index in [0, 1, 2]
+              -
+                let randomNum = Math.floor(Math.random() * product_data_list.length);
+                let product = product_data_list[randomNum];
+                let path = "../../../images/glasses/" + getFileNameFromImgURL(product.imgUrlList[0]);
+              .another-product
+                img(src=path, alt="image")
+    .line--divider
+    .main__body
+      .body__section
+        .description
+          .paragraph-wrap
+            p
+          .line--horizontal
+        .img-wrap
+          -
+            let imgUrlList = product_data.imgUrlList;
+            let lateralImgUrl = imgUrlList.filter(x => x.match(/(Lateral)|(Side)/i))[0];
+
+          img(src="../../../images/glasses/" + getFileNameFromImgURL(lateralImgUrl), alt="")
+
+      .body__section
+        .img-wrap
+          - let upSideAngleImgUrl = imgUrlList.filter(x => x.match(/3.4_/))[0];
+          svg(viewbox="0 0 1240 1240")
+            image(href="../../../images/glasses/" + getFileNameFromImgURL(upSideAngleImgUrl))
+        .description
+          .list-wrap 
+            ul 
+                li
+
+      .body__section
+        .grid-left
+          img(src="", alt="")
+        .grid-right
+          img(src="", alt="")
+          img(src="", alt="")
+          img(src="", alt="")
+          img(src="", alt="")

@@ -71,9 +71,9 @@ block content
         .card__inner
           .card__image-box
             .image-wrap
-              img(src="../images/glasses/GINZA-BLACK-MAN-3-4_d64a1580-322d-4686-b0d1-f9f1f1fc31cb.jpg" alt="image")
+              img(src="../images/glasses/Ginza_Black_noir_etc_0.jpg" alt="image")
             .image-wrap
-              img(src="../images/glasses/GINZA-BLACK-MAN-FRONT_795e2787-7556-4410-bb20-46b05b51de1d.jpg" alt="image")
+              img(src="../images/glasses/Ginza_Black_noir_model1-2.jpg" alt="image")
           .card__description-box
             p.description-box__description.description METAL GLASSES<br/>
               | Metal eyeglasses padded at the nose, for adaptability and comfort. The perfect choice for a chic and refined look. Super lightweight, available in five colors and two unique shapes.
@@ -86,7 +86,7 @@ block content
               | We live totally surrounded by screens, spending almost nine hours a day, on average, in front of digital devices. All these devices emit blue light, and since our eyes aren't protected against this overexposure, the light can be detrimental.
           .card__image-box
             .image-wrap
-              img(src="../images/glasses/Dalston_BlueTortoise_34_woman.jpg" alt="image")
+              img(src="../images/glasses/Dalston_Blue_tortoise_model2-1.jpg" alt="image")
             ul.keywords-wrap
               li.keywords__el
                 .keywords__text.keywords_text--Better-focus Better focus
@@ -101,7 +101,8 @@ block content
           each val in getRandomNumArr(5, glasses_data.length - 1)
             -
               let product = glasses_data[val]
-              let productImgPath = '../images/glasses/' + getFileNameFromImgURL(product.imgUrlList[0])
+              let fileName = product.productName.replace(" ", "_") + "_" + product.productColor.replace(" ", "_") + "_front.jpg";
+              let productImgPath = "../images/glasses/" + fileName;
             .cell
               a.cell__inner(href="")
                 .cell__image-wrap
@@ -169,7 +170,7 @@ block content
         .card__inner
           .card__image-box
             .img-wrap
-              img(src="../images/glasses/RECOLETA-SILVER-SIDE.jpg" alt="image")
+              img(src="../images/sunglasses/Recoleta_Sun_Silver_matte_upAngle.jpg" alt="image")
           .card__description-box
             .line.line--horizontal
             .description-box__division
@@ -188,7 +189,7 @@ block content
               p.description-box__description.description We live totally surrounded by screens, spending almost nine hours a day, on average, in front of digital devices. All these devices emit blue light, and since our eyes aren't protected against this overexposure, the light can be detrimental.
           .card__image-box 
             .img-wrap 
-              img(src="../images/glasses/GINZA-BLACK-NOIR-SIDE-WOMAN.jpg" alt="image")
+              img(src="../images/sunglasses/Ginza_Sun_Black_noir_model1-1.jpg" alt="image")
 
       .sunglasses-section__card.card.card--4 
         .card__inner.product-grid-view
@@ -197,7 +198,8 @@ block content
             each val in [0, 1, 2]
               - 
                 let product = sunglasses_data[val];
-                let productImgPath = '../images/glasses/' + getFileNameFromImgURL(product.imgUrlList[0]);
+                let fileName = product.productName.replace(" ", "_") + "_" + product.productColor.replace(" ", "_") + "_front.jpg";
+                let productImgPath = "../images/sunglasses/" + fileName;
               a.cell(href="")
                 .cell__img-wrap 
                   img(src=productImgPath, alt="image")
@@ -208,7 +210,8 @@ block content
           .grid-view.grid-view__horizontal
             - 
               let product = sunglasses_data[3];
-              let productImgPath = '../images/glasses/' + getFileNameFromImgURL(product.imgUrlList[0]);
+              let fileName = product.productName.replace(" ", "_") + "_" + product.productColor.replace(" ", "_") + "_front.jpg";
+              let productImgPath = '../images/sunglasses/' + fileName;
             a.cell(href="")
               .cell__img-wrap.cell__img-wrap--horizontal
                 img(src=productImgPath alt="image")
