@@ -3070,64 +3070,6 @@
         ]
     },
     {
-        "productColor": "Military green",
-        "productName": "Le marais",
-        "productPrice": "€59",
-        "productDisCountedPrice": "€42",
-        "productDescription": "High quality and stylish computer glasses to protect your eyes from Blue Light of digital devices. It will provide you with better sleep and a healthier life.",
-        "colorSet": [
-            "Black Noir",
-            "Palace Blue",
-            "Honey",
-            "Military Green",
-            "Bright Sky",
-            "Dusty Pink",
-            "Coconut Milk",
-            "Burgundy Red",
-            "Dark Green",
-            "Navy Blue",
-            "Blue Steel",
-            "Tortoise",
-            "Blue Tortoise",
-            "Light Tortoise",
-            "Pink Tortoise"
-        ],
-        "asides": [
-            "High Quality organic CR-39 lenses that block 100% of the Blue Light under 410nm and 45% of the Blue Light on the 410nm - 450nm spectrum. ",
-            "Super light TR-90 frames for excellent comfort",
-            "Flexible hinges & temples that will adapt to any face shape",
-            "Rubberized texture for a better grip on your nose and ears"
-        ],
-        "additionalInfo": [
-            {
-                "title": "Fit",
-                "constents": "Unise"
-            },
-            {
-                "title": "Lens Material",
-                "constents": "CR3"
-            },
-            {
-                "title": "Size",
-                "constents": "50-20-13"
-            },
-            {
-                "title": "Frame Material",
-                "constents": "TR-9"
-            }
-        ],
-        "imgUrlList": [
-            "https://cdn.shopify.com/s/files/1/0015/5110/6106/products/LeMarais_MilitaryGreen_Front_955ac343-8a68-4b2e-97dd-eaf16804a6ca.jpg?v=1636457227",
-            "https://cdn.shopify.com/s/files/1/0015/5110/6106/products/LeMarais_MilitaryGreen_34_eb2d01fc-d0f5-49cb-8e5e-2add2c949dac.jpg?v=1636457228",
-            "https://cdn.shopify.com/s/files/1/0015/5110/6106/products/packaging_marais_green_9dd4eefe-bb8d-4a90-8904-97afd05910a0.jpg?v=1636457228",
-            "https://cdn.shopify.com/s/files/1/0015/5110/6106/products/LEMARAIS-MINERAL-MAN-SIDE_02564e78-165c-44b4-b367-424a519b5997.jpg?v=1636457228",
-            "https://cdn.shopify.com/s/files/1/0015/5110/6106/products/LEMARAIS-MINERAL-MAN-3-4_67216b44-2a46-4508-8003-c12595a5a0a8.jpg?v=1636457228",
-            "https://cdn.shopify.com/s/files/1/0015/5110/6106/products/LEMARAIS-MINERAL-WOMAN-3-4_7791db56-504e-424d-a73d-7c8207b97aa9.jpg?v=1636457289",
-            "https://cdn.shopify.com/s/files/1/0015/5110/6106/products/LEMARAIS-MINERAL-MAN-FRONT_4cbff5b3-da42-4e5b-9c0e-3c0325697735.jpg?v=1636457228",
-            "https://cdn.shopify.com/s/files/1/0015/5110/6106/products/LEMARAIS-MINERAL-WOMAN-FRONT_9e947063-c3d2-4f68-a491-41ddba430e42.jpg?v=1636457283"
-        ]
-    },
-    {
         "productColor": "Navy blue",
         "productName": "Le marais",
         "productPrice": "€59",

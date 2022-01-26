@@ -10,12 +10,17 @@ block content
       let endIndex = url.indexOf('?v=');
       return url.slice(startIndex + 9, endIndex);
     }
+
+    let fileNamePrefix = product_data.productName.replace(" ", "_") + "_" + product_data.productColor.replace(" ", "_");
   .main
     .main__top 
       .top__inner
         .top__product.product 
           .product__image
-            img(src="../../../images/glasses/" + getFileNameFromImgURL(product_data.imgUrlList[0]), alt="image")
+            if category == "Eyeglasses"
+              img(src="../../../images/glasses/" + fileNamePrefix + "_front.jpg", alt="image")
+            else 
+              img(src="../../../images/sunglasses/" + fileNamePrefix + "_front.jpg", alt="image")
           .product__shop
             .product__context
               .context__title
@@ -49,7 +54,8 @@ block content
               -
                 let randomNum = Math.floor(Math.random() * product_data_list.length);
                 let product = product_data_list[randomNum];
-                let path = "../../../images/glasses/" + getFileNameFromImgURL(product.imgUrlList[0]);
+                let asideFileName = product.productName.replace(" ", "_") + "_" + product.productColor.replace(" ", "_") + "_front.jpg"
+                let path = category == "Eyeglasses" ? "../../../images/glasses/" + asideFileName : "../../../images/sunglasses/" + asideFileName;
               .another-product
                 img(src=path, alt="image")
     .line--divider
@@ -57,30 +63,49 @@ block content
       .body__section
         .description
           .paragraph-wrap
-            p
+            p!= product_data.asides.join("<br/><br/>")
           .line--horizontal
         .img-wrap
-          -
-            let imgUrlList = product_data.imgUrlList;
-            let lateralImgUrl = imgUrlList.filter(x => x.match(/(Lateral)|(Side)/i))[0];
-
-          img(src="../../../images/glasses/" + getFileNameFromImgURL(lateralImgUrl), alt="")
+          if category == "Eyeglasses"
+            - let sideImgUrl = "../../../images/glasses/" + fileNamePrefix + "_side.jpg";
+            img(src=sideImgUrl, alt="")
+          else
+            - let sideImgUrl = "../../../images/sunglasses/" + fileNamePrefix + "_model1-1.jpg";
+            img(src=sideImgUrl, alt="")
 
       .body__section
         .img-wrap
-          - let upSideAngleImgUrl = imgUrlList.filter(x => x.match(/3.4_/))[0];
-          svg(viewbox="0 0 1240 1240")
-            image(href="../../../images/glasses/" + getFileNameFromImgURL(upSideAngleImgUrl))
+          if category == "Eyeglasses"
+            - let upAngleImgUrl = "../../../images/glasses/" + fileNamePrefix + "_upAngle.jpg";
+            svg(viewbox="0 0 1240 1240")
+              image(href=upAngleImgUrl)
+              circle(cx="500" cy="500" r="16" fill="#6668e2")
+          else
+            - let upAngleImgUrl = "../../../images/sunglasses/" + fileNamePrefix + "_upAngle.jpg";
+            svg(viewbox="0 0 1240 1240")
+              image(href=upAngleImgUrl)
+          
         .description
           .list-wrap 
             ul 
-                li
+              each spec in product_data.additionalInfo
+                li= spec.title
+                  span  : 
+                  span= spec.constents
+
 
       .body__section
-        .grid-left
-          img(src="", alt="")
-        .grid-right
-          img(src="", alt="")
-          img(src="", alt="")
-          img(src="", alt="")
-          img(src="", alt="")
+        if category == "Eyeglasses"
+          .grid.grid--left
+            - let packageImgUrl = "../../../images/glasses/" + fileNamePrefix + "_package.jpg";
+            img(src= packageImgUrl, alt="")
+
+        .grid.grid--right
+          - let aaa = category == "Eyeglasses" ? "../../../images/glasses/" + fileNamePrefix : "../../../images/sunglasses/" + fileNamePrefix;
+
+          img(src=aaa + "_model1-1.jpg", alt="")
+          img(src=aaa + "_model2-1.jpg", alt="")
+          img(src=aaa + "_model1-2.jpg", alt="")
+          img(src=aaa + "_model2-2.jpg", alt="")
+  section.main__footer
+      a(href="/") Back to Main
