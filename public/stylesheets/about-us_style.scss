@@ -1,0 +1,16 @@
+@import './variables.scss';
+
+.main__footer {
+    background-color: $main-color;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 120px;
+    margin-top: 80px;
+    a {
+        color: white;
+        font-size: 3em;
+    }
+}

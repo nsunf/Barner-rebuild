@@ -48,4 +48,8 @@ router.get('/product/:category/:name/:color', function(req, res, next) {
   }
 })
 
+router.get('/about-us', function(req, res, next) {
+  res.render('about-us', { title: "About-Us" });
+})
+
 module.exports = router;

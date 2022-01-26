@@ -67,23 +67,45 @@ block content
           .line--horizontal
         .img-wrap
           if category == "Eyeglasses"
-            - let sideImgUrl = "../../../images/glasses/" + fileNamePrefix + "_side.jpg";
-            img(src=sideImgUrl, alt="")
+            - 
+              let sideImgUrl = "../../../images/glasses/" + fileNamePrefix + "_side.jpg";
+              let spareImgUrl = "../../../images/glasses/" + fileNamePrefix + "_etc_0.jpg";
+            img(src=sideImgUrl, alt="" onerror="this.src='" + spareImgUrl + "'")
           else
             - let sideImgUrl = "../../../images/sunglasses/" + fileNamePrefix + "_model1-1.jpg";
             img(src=sideImgUrl, alt="")
 
       .body__section
         .img-wrap
-          if category == "Eyeglasses"
-            - let upAngleImgUrl = "../../../images/glasses/" + fileNamePrefix + "_upAngle.jpg";
-            svg(viewbox="0 0 1240 1240")
-              image(href=upAngleImgUrl)
-              circle(cx="500" cy="500" r="16" fill="#6668e2")
-          else
-            - let upAngleImgUrl = "../../../images/sunglasses/" + fileNamePrefix + "_upAngle.jpg";
-            svg(viewbox="0 0 1240 1240")
-              image(href=upAngleImgUrl)
+          - 
+            let upAngleImgUrl = category == "Eyeglasses" ? "../../../images/glasses/" + fileNamePrefix + "_upAngle.jpg" : "../../../images/sunglasses/" + fileNamePrefix + "_upAngle.jpg";
+            let lensMaterial = product_data.additionalInfo.filter(x => x.title == "Lens Material")[0].contents;
+            let frameMaterial = product_data.additionalInfo.filter(x => x.title == "Frame Material")[0].contents;
+          svg(viewbox="0 0 1240 1240")
+            image(href=upAngleImgUrl)
+            circle(cx="220" cy="640" r="16" fill="#6668e2")
+            path(d="M220 640 l 100 400 h 200" fill="none" stroke="#6668e2" stroke-width="2")
+            text(x="336" y="1024" font-size="3em" font-family="Avenir" font-weight="900" fill="#6668e2")= lensMaterial
+
+            if frameMaterial.includes("/")
+              -
+                let frontMat = frameMaterial.match(/(?<=- ).+(?= \/)/g); 
+                let templesMat = frameMaterial.match(/(?<=: ).+/g);
+              circle(cx="640" cy="456" r="16" fill="#6668e2")
+              path(d="M640 456 l 80 -160 h 200" fill="none" stroke="#6668e2" stroke-width="2")
+              text(x="736" y="280" font-size="3em" font-family="Avenir" font-weight="900" fill="#6668e2")= templesMat
+
+              circle(cx="690" cy="700" r="16" fill="#6668e2")
+              path(d="M690 700 l 50 200 h 200" fill="none" stroke="#6668e2" stroke-width="2")
+              text(x="756" y="884" font-size="3em" font-family="Avenir" font-weight="900" fill="#6668e2")= frontMat
+            else
+              circle(cx="220" cy="640" r="16" fill="#6668e2")
+              path(d="M220 640 l 100 400 h 200" fill="none" stroke="#6668e2" stroke-width="2")
+              text(x="336" y="1024" font-size="3em" font-family="Avenir" font-weight="900" fill="#6668e2")= lensMaterial
+
+              circle(cx="690" cy="700" r="16" fill="#6668e2")
+              path(d="M690 700 l 50 200 h 200" fill="none" stroke="#6668e2" stroke-width="2")
+              text(x="756" y="884" font-size="3em" font-family="Avenir" font-weight="900" fill="#6668e2")= frameMaterial
           
         .description
           .list-wrap 
@@ -91,14 +113,12 @@ block content
               each spec in product_data.additionalInfo
                 li= spec.title
                   span  : 
-                  span= spec.constents
-
+                  span= spec.contents
 
       .body__section
-        if category == "Eyeglasses"
-          .grid.grid--left
-            - let packageImgUrl = "../../../images/glasses/" + fileNamePrefix + "_package.jpg";
-            img(src= packageImgUrl, alt="")
+        .grid.grid--left
+          - let packageImgUrl = category == "Eyeglasses" ? "../../../images/glasses/" + fileNamePrefix + "_package.jpg" : "../../../images/sunglasses/" + fileNamePrefix + "_front.jpg";
+          img(src= packageImgUrl, alt="")
 
         .grid.grid--right
           - let aaa = category == "Eyeglasses" ? "../../../images/glasses/" + fileNamePrefix : "../../../images/sunglasses/" + fileNamePrefix;
