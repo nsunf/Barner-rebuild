@@ -52,4 +52,8 @@ router.get('/about-us', function(req, res, next) {
   res.render('about-us', { title: "About-Us" });
 })
 
+router.get('/cart', function(req, res, next) {
+  res.render('cart', { title: "Cart" });
+})
+
 module.exports = router;

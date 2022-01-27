@@ -1,0 +1,76 @@
+extends layout 
+
+block styles 
+  link(rel="stylesheet" href="/stylesheets/cart_style.css")
+
+block scripts 
+  script document.querySelector(".main").style.height = window.innerHeight - document.querySelector(".header").offsetHeight + "px";
+
+block content 
+  .main 
+    .main__top
+      .top__inner
+        div.top__img-wrap.top__img-wrap--check-all
+          img(src="../../../images/svg/akar-icons_circle-check-fill.svg", alt="")
+        div.top__img-wrap.top__img-wrap--delete-selected
+          span delete selected
+          img(src="../../../images/svg/fluent_delete-16-filled.svg", alt="")
+    .main__body
+      .body__left
+        .product-list
+          .cell
+            .cell__checkbox 
+              img(src="../../../images/svg/check-unfill.svg", alt="")
+            .cell__content
+              .cell__image
+                img(src="../../../images/glasses/Chamberí_Black_noir_front.jpg", alt="product image")
+              .cell__text
+                span.text--name Chamberi Black Noir
+                span.text--price €59
+              .cell__delete
+                img(src="../../../images/svg/bx_bx-x.svg", alt="")
+          .cell
+            .cell__checkbox 
+              img(src="../../../images/svg/check-unfill.svg", alt="")
+            .cell__content
+              .cell__image
+                img(src="../../../images/glasses/Chamberí_Black_noir_front.jpg", alt="product image")
+              .cell__text
+                span.text--name Chamberi Black Noir
+                span.text--price €59
+              .cell__delete
+                img(src="../../../images/svg/bx_bx-x.svg", alt="")
+          .cell
+            .cell__checkbox 
+              img(src="../../../images/svg/check-unfill.svg", alt="")
+            .cell__content
+              .cell__image
+                img(src="../../../images/glasses/Chamberí_Black_noir_front.jpg", alt="product image")
+              .cell__text
+                span.text--name Chamberi Black Noir
+                span.text--price €59
+              .cell__delete
+                img(src="../../../images/svg/bx_bx-x.svg", alt="")
+      .body__right
+        .receipt
+          .row
+            span.row__name Chamberi Black Noir
+            span.row__price €59
+          .row
+            span.row__name Chamberi Black Noir
+            span.row__price €59
+          .row
+            span.row__name Chamberi Black Noir
+            span.row__price €59
+
+          .total
+            .row.row__shipping
+              span shipping
+              span €0
+            .row.row__total
+              span total
+              span €117
+        .total-price
+          h2 €117
+        .payment
+          input(type="button" value="Payment")

@@ -1,0 +1,106 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  width: 80%;
+  margin: 0 auto; }
+
+.main__top {
+  border-bottom: 1px solid #6668E2; }
+  .main__top .top__inner {
+    width: 50%;
+    padding: 0 48px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between; }
+
+.main__body {
+  display: flex;
+  flex-direction: row;
+  height: 80vh; }
+
+.body__left {
+  width: 50%;
+  padding: 40px 80px 0 0;
+  box-sizing: border-box; }
+  .body__left .product-list {
+    display: flex;
+    flex-direction: column; }
+  .body__left .cell {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 32px 0; }
+  .body__left .cell__checkbox {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  .body__left .cell__content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 16px;
+    border-bottom: 1px solid #6668E2;
+    padding: 8px 0;
+    box-sizing: border-box; }
+  .body__left .cell__image img {
+    width: 144px; }
+  .body__left .cell__text {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; }
+  .body__left .text--name {
+    font-size: 1.4em;
+    margin: 8px 0; }
+  .body__left .text--price {
+    font-size: 1.2em;
+    color: black; }
+
+.body__right {
+  flex-grow: 1;
+  border-left: 1px solid #6668E2;
+  padding: 0 8%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch; }
+  .body__right .receipt {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; }
+  .body__right .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+    padding: 8px 0; }
+    .body__right .row__name {
+      color: black;
+      font-size: 1.2em; }
+    .body__right .row__price {
+      color: black;
+      font-size: 1em; }
+  .body__right .total {
+    display: flex;
+    flex-direction: column; }
+    .body__right .total .row {
+      border: none; }
+      .body__right .total .row span {
+        color: black; }
+  .body__right .total-price {
+    margin: 40px 0; }
+    .body__right .total-price h2 {
+      font-size: 5em; }
+  .body__right .payment input {
+    color: white;
+    background: #6668E2;
+    border: none;
+    padding: 20px 80px;
+    font-size: 2.4em; }
+
+/*# sourceMappingURL=cart_style.css.map */
