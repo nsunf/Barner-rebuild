@@ -46,14 +46,14 @@ block content
                 feGaussianBlur(stdDeviation="10")
 
               mask#mask 
-                image(href="../images/glasses_mask.png" x="50%" y="50%" width="70%" style="transform: translate(-35%, -20%)")
+                image(href="../images/index_page/glasses_mask.png" x="50%" y="50%" width="70%" style="transform: translate(-35%, -20%)")
 
             ellipse(cx="32%" cy="67%" rx="80" ry="20" fill="#000" opacity="0.5" filter="url(#blur)")
             ellipse(cx="69%" cy="67%" rx="80" ry="20" fill="#000" opacity="0.5" filter="url(#blur)")
             use(href="#text_glasses" filter="url(#blur)")
-            image(href="../images/glasses_origin.png" x="50%" y="50%" width="70%" style="transform: translate(-35%, -20%)")
+            image(href="../images/index_page/glasses_origin.png" x="50%" y="50%" width="70%" style="transform: translate(-35%, -20%)")
             use(href="#text_glasses" mask="url(#mask)")
-            image(href="../images/glasses_front.png" x="50%" y="50%" width="70%" style="transform: translate(-35%, -20%)")
+            image(href="../images/index_page/glasses_front.png" x="50%" y="50%" width="70%" style="transform: translate(-35%, -20%)")
 
       .glasses-section__card.card.card--2
         .card__inner
@@ -65,7 +65,7 @@ block content
             .image-box__division
               .line.line--vertical 
               .img-wrap
-                img(src="../images/chroma-man-woman-01_1200x.jpeg" alt="image")
+                img(src="../images/index_page/chroma-man-woman-01_1200x.jpeg" alt="image")
 
       .glasses-section__card.card.card--3
         .card__inner
@@ -155,16 +155,16 @@ block content
                 feGaussianBlur(stdDeviation="25" x="-50%" y="-50%" width="200%" height="200%")
 
               mask#mask 
-                image(href="../images/sunglasses_origin.png" x="50%" y="50%" width="70%" style="transform: translate(-35%, -20%);")
+                image(href="../images/index_page/sunglasses_origin.png" x="50%" y="50%" width="70%" style="transform: translate(-35%, -20%);")
 
             ellipse(cx="32%" cy="67%" rx="80" ry="20" fill="#000" opacity="0.5" filter="url(#blur)")
             ellipse(cx="69%" cy="67%" rx="80" ry="20" fill="#000" opacity="0.5" filter="url(#blur)")
             use(href="#text_sunglasses" fill="#fffa87" filter="url(#light-blur2)")
             use(href="#text_sunglasses" fill="#fffa87" filter="url(#light-blur1)")
             use(href="#text_sunglasses" fill="#fff" filter="url(#text-blur)")
-            image(href="../images/sunglasses_origin.png" x="50%" y="50%" width="70%" style="transform: translate(-35%, -20%);")
+            image(href="../images/index_page/sunglasses_origin.png" x="50%" y="50%" width="70%" style="transform: translate(-35%, -20%);")
             use(href="#text_sunglasses" fill="#fff" style="mix-blend-mode: overlay;" mask="url(#mask)")
-            image(href="../images/sunglasses_frame_nose.png" x="50%" y="50%" width="70%" style="transform: translate(-35%, -20%);")
+            image(href="../images/index_page/sunglasses_frame_nose.png" x="50%" y="50%" width="70%" style="transform: translate(-35%, -20%);")
 
       .sunglasses-section__card.card.card--2
         .card__inner
@@ -243,7 +243,7 @@ block content
                 | Companies can obtain B Corp status by completing a 200-questionnaire that assesses everything from company structure and working conditions to sustainability initiatives and community action.
           .footer__top--right
             .image-wrap 
-              img(src="../images/glasses_icon.svg", alt="glasses")
+              img(src="../images/svg/glasses_icon.svg", alt="glasses")
         .line--horizontal
         .footer__bottom
           h2 Barner Barner
