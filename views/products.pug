@@ -23,7 +23,7 @@ block content
   main.main
     - let isEyeglasses = title == "Eyeglasses"; 
     section.main__top.top
-      .top__image
+      .top__image.flex--center
         if isEyeglasses
             img.top__image--glasses(src="../images/svg/glasses_icon_blue.svg", alt="image")
         else
@@ -44,23 +44,23 @@ block content
 
           .option-wrap.folded
             ul.option
-              li.option__item.option__item--selected
+              li.option__item.flex--center.option__item--selected
                 span.option__text ABC 
                 + arrow(true)
-              li.option__item
+              li.option__item.flex--center
                 span.option__text ABC 
                 + arrow(false)
-              li.option__item
+              li.option__item.flex--center
                 span.option__text Price 
                 + arrow(true)
-              li.option__item
+              li.option__item.flex--center
                 span.option__text Price 
                 + arrow(false)
       .body__products-list
         .products-list__inner 
           each product in product_data
             - let path = "/product/" + title + "/" + product.productName.replace("í", "i").replace(" ", "_") + "/" + product.productColor.replace(" ", "_");
-            .cell
+            .cell.flex--center
               a.cell__link(href=path) 
                 -
                   let fileName = product.productName.replace(" ", "_") + "_" + product.productColor.replace(" ", "_") + "_front.jpg";
@@ -75,5 +75,5 @@ block content
                   span.context__text.context__text--price #{product.productPrice}
                   span.context__text.context__text--color #{product.productColor}
 
-    section.main__footer
+    section.main__footer.flex--center
       a(href="/") Back to Main

@@ -43,10 +43,7 @@
   display: flex; }
   .how-we-started__left-side {
     flex-shrink: 0;
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center; }
+    width: 50%; }
     .how-we-started__left-side svg {
       width: 60%;
       height: 60%; }
@@ -67,10 +64,7 @@
         margin-right: 40px; }
 
 .our-vision {
-  display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   margin: 80px 20%; }
   .our-vision__paragraph {
     display: flex;
@@ -83,9 +77,6 @@
 
 .main__footer {
   background-color: #6668E2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 120px;
   margin-top: 80px; }
   .main__footer a {

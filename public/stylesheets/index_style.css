@@ -58,9 +58,6 @@
   .glasses-section .card--3 .card__image-box .image-wrap {
     flex-grow: 1;
     flex-shrink: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     padding: 0 40px; }
     .glasses-section .card--3 .card__image-box .image-wrap:first-child {
       transform: translateY(-100px);
@@ -70,15 +67,12 @@
       padding-right: 16px; }
     .glasses-section .card--3 .card__image-box .image-wrap img {
       width: 100%;
-      aspect-ratio: 3 / 4;
-      object-fit: cover; }
+      aspect-ratio: 3 / 4; }
 
 .glasses-section .card--3 .card__description-box {
   flex-shrink: 1;
   flex-basis: 20%;
-  padding: 0 100px 0 0;
-  display: flex;
-  align-items: center; }
+  padding: 0 100px 0 0; }
   .glasses-section .card--3 .card__description-box .description {
     padding-top: 60%;
     margin: 120px 0; }
@@ -107,8 +101,7 @@
     width: 50%; }
     .glasses-section .card--4 .card__image-box .image-wrap img {
       width: 100%;
-      aspect-ratio: 3/4;
-      object-fit: cover; }
+      aspect-ratio: 3/4; }
   .glasses-section .card--4 .card__image-box .keywords-wrap {
     display: flex;
     flex-direction: column;
@@ -117,10 +110,7 @@
     .glasses-section .card--4 .card__image-box .keywords-wrap .keywords__el {
       flex-grow: 1;
       border-top: 1px solid #6668E2;
-      padding: 4px 16px;
-      display: flex;
-      justify-content: center;
-      align-items: center; }
+      padding: 4px 16px; }
       .glasses-section .card--4 .card__image-box .keywords-wrap .keywords__el:first-child {
         border: none; }
       .glasses-section .card--4 .card__image-box .keywords-wrap .keywords__el .keywords__text {
@@ -141,15 +131,11 @@
     .glasses-section .card--5 .cell__inner:hover .cell__image--hover-view {
       height: 90px; }
     .glasses-section .card--5 .cell__image-wrap {
-      display: flex;
-      justify-content: center;
-      align-items: center;
       width: 342.85714px;
       overflow: hidden;
       position: relative; }
       .glasses-section .card--5 .cell__image-wrap .cell__product-image {
         width: 800px;
-        object-fit: cover;
         transform: rotate(90deg); }
       .glasses-section .card--5 .cell__image-wrap .cell__image--hover-view {
         width: 100%;
@@ -162,10 +148,7 @@
         .glasses-section .card--5 .cell__image-wrap .cell__image--hover-view .hover-view {
           width: 100%;
           height: 90px;
-          background: #6668E2;
-          display: flex;
-          justify-content: center;
-          align-items: center; }
+          background: #6668E2; }
           .glasses-section .card--5 .cell__image-wrap .cell__image--hover-view .hover-view__text {
             color: white;
             font-size: 1.6em; }
@@ -255,7 +238,6 @@
       .sunglasses-section .card--2 .card__image-box .img-wrap img {
         width: 100%;
         aspect-ratio: 3 / 4;
-        object-fit: cover;
         transform: translateY(-40px); }
   .sunglasses-section .card--2 .card__description-box {
     flex-basis: 45%;
@@ -313,8 +295,7 @@
       margin: 0 160px 0 80px; }
       .sunglasses-section .card--3 .card__image-box .img-wrap img {
         width: 80%;
-        aspect-ratio: 3 / 4;
-        object-fit: cover; }
+        aspect-ratio: 3 / 4; }
 
 .sunglasses-section .card--4 .product-grid-view {
   display: flex;
@@ -324,12 +305,7 @@
 .sunglasses-section .card--4 .grid-view .cell {
   display: flex; }
   .sunglasses-section .card--4 .grid-view .cell__img-wrap {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     overflow: hidden; }
-    .sunglasses-section .card--4 .grid-view .cell__img-wrap img {
-      object-fit: cover; }
   .sunglasses-section .card--4 .grid-view .cell .cell-detail__text--name {
     font-size: 1.4em; }
   .sunglasses-section .card--4 .grid-view .cell .cell-detail__text--color {
@@ -421,6 +397,7 @@
       background-position: center;
       background-size: cover; }
       .sunglasses-section .card--6 .sunglasses-section__top--image-wrap .description-wrap {
+        margin-top: 20px;
         padding: 0 0 160px 32px;
         font-size: 3.6em;
         width: 55%;
@@ -467,8 +444,6 @@
     left: -20%;
     background-color: white; }
   .footer .footer__bottom {
-    display: flex;
-    align-items: center;
     overflow: hidden;
     height: 320px; }
     .footer .footer__bottom h2 {

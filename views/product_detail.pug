@@ -48,7 +48,7 @@ block content
                         image(href=path width="50px" height="50px" x="16px" y="16px" style="transform: translate(-25px, -25px)")
             .btn
               input.btn--add-to-cart(type="button" value="Add To Cart")
-        .top__aside.aside
+        .top__aside.aside.flex--center
           .aside__inner 
             each index in [0, 1, 2]
               -
@@ -127,5 +127,5 @@ block content
           img(src=aaa + "_model2-1.jpg", alt="")
           img(src=aaa + "_model1-2.jpg", alt="")
           img(src=aaa + "_model2-2.jpg", alt="")
-  section.main__footer
+  section.main__footer.flex--center
       a(href="/") Back to Main

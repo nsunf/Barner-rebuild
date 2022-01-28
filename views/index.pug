@@ -3,6 +3,10 @@ extends layout
 block styles 
   link(rel='stylesheet', href='/stylesheets/index_style.css')
 
+block scripts 
+  script(src="/animejs/lib/anime.min.js")
+  script(src="/javascripts/index_script.js")
+
 block content
   -
     function getFileNameFromImgURL(url) {
@@ -45,15 +49,15 @@ block content
               filter#blur(x="-50%" y="-50%" width="200%" height="200%")
                 feGaussianBlur(stdDeviation="10")
 
-              mask#mask 
-                image(href="../images/index_page/glasses_mask.png" x="50%" y="50%" width="70%" style="transform: translate(-35%, -20%)")
+              mask#glasses-mask 
+                image.glasses__image--mask(href="../images/index_page/glasses_mask.png" x="50%" y="50%" width="70%" style="transform: translate(-35%, -20%)")
 
-            ellipse(cx="32%" cy="67%" rx="80" ry="20" fill="#000" opacity="0.5" filter="url(#blur)")
-            ellipse(cx="69%" cy="67%" rx="80" ry="20" fill="#000" opacity="0.5" filter="url(#blur)")
+            ellipse.glasses__shadow(cx="32%" cy="67%" rx="80" ry="20" fill="#000" opacity="0.5" filter="url(#blur)")
+            ellipse.glasses__shadow(cx="69%" cy="67%" rx="80" ry="20" fill="#000" opacity="0.5" filter="url(#blur)")
             use(href="#text_glasses" filter="url(#blur)")
-            image(href="../images/index_page/glasses_origin.png" x="50%" y="50%" width="70%" style="transform: translate(-35%, -20%)")
-            use(href="#text_glasses" mask="url(#mask)")
-            image(href="../images/index_page/glasses_front.png" x="50%" y="50%" width="70%" style="transform: translate(-35%, -20%)")
+            image.glasses__image--origin(href="../images/index_page/glasses_origin.png" x="50%" y="50%" width="70%" style="transform: translate(-35%, -20%)")
+            use(href="#text_glasses" mask="url(#glasses-mask)")
+            image.glasses__image--front(href="../images/index_page/glasses_front.png" x="50%" y="50%" width="70%" style="transform: translate(-35%, -20%)")
 
       .glasses-section__card.card.card--2
         .card__inner
@@ -64,17 +68,17 @@ block content
             .line.line--horizontal
             .image-box__division
               .line.line--vertical 
-              .img-wrap
+              .img-wrap.fade-in.fade-in--slide-up
                 img(src="../images/index_page/chroma-man-woman-01_1200x.jpeg" alt="image")
 
       .glasses-section__card.card.card--3
         .card__inner
           .card__image-box
-            .image-wrap
-              img(src="../images/glasses/Ginza_Black_noir_etc_0.jpg" alt="image")
-            .image-wrap
-              img(src="../images/glasses/Ginza_Black_noir_model1-2.jpg" alt="image")
-          .card__description-box
+            .image-wrap.flex--center
+              img.fade-in.fade-in--slide-up(src="../images/glasses/Ginza_Black_noir_etc_0.jpg" alt="image")
+            .image-wrap.flex--center
+              img.fade-in.fade-in--slide-up(src="../images/glasses/Ginza_Black_noir_model1-2.jpg" alt="image")
+          .card__description-box.flex--center
             p.description-box__description.description METAL GLASSES<br/>
               | Metal eyeglasses padded at the nose, for adaptability and comfort. The perfect choice for a chic and refined look. Super lightweight, available in five colors and two unique shapes.
 
@@ -86,13 +90,13 @@ block content
               | We live totally surrounded by screens, spending almost nine hours a day, on average, in front of digital devices. All these devices emit blue light, and since our eyes aren't protected against this overexposure, the light can be detrimental.
           .card__image-box
             .image-wrap
-              img(src="../images/glasses/Dalston_Blue_tortoise_model2-1.jpg" alt="image")
-            ul.keywords-wrap
-              li.keywords__el
+              img.fade-in.fade-in--slide-up(src="../images/glasses/Dalston_Blue_tortoise_model2-1.jpg" alt="image")
+            ul.keywords-wrap.fade-in.fade-in--slide-left
+              li.keywords__el.flex--center
                 .keywords__text.keywords_text--Better-focus Better focus
-              li.keywords__el
+              li.keywords__el.flex--center
                 .keywords__text.keywords_text--Reduces-CVS Reduces-CVS
-              li.keywords__el
+              li.keywords__el.flex--center
                 .keywords__text.keywords_text--Better-sleep-cycles Better sleep cycles
 
       .glasses-section__card.card.card--5
@@ -104,11 +108,11 @@ block content
               let fileName = product.productName.replace(" ", "_") + "_" + product.productColor.replace(" ", "_") + "_front.jpg";
               let productImgPath = "../images/glasses/" + fileName;
             .cell
-              a.cell__inner(href="")
-                .cell__image-wrap
+              a.cell__inner(href="/")
+                .cell__image-wrap.flex--center.fade-in.fade-in--slide-up
                   img.cell__product-image(src=productImgPath, alt="")
                   .cell__image--hover-view
-                    .hover-view
+                    .hover-view.flex--center
                       .hover-view__text SHOW DETAIL
                 .cell__detail
                   .cell__detail--name #{product.productName}
@@ -122,8 +126,8 @@ block content
               p.link--paragraph Browse more glasses. There are a lot of bluelight glasses
               .link--image-wrap
                 img.image--arrow(src="https://img.icons8.com/external-kmg-design-glyph-kmg-design/64/6668E2/external-right-arrow-arrows-kmg-design-glyph-kmg-design-1.png")
-            .glasses-section__top--image-wrap
-              .description-wrap
+            .glasses-section__top--image-wrap.fade-in.fade-in--slide-up
+              .description-wrap.fade-in.fade-in--slide-up
                 p.description Discover classic round frames with a fresh twist thanks
           .glasses-section__bottom
             span.bottom__text.text--bluelight-glasses Bluelight Glasses
@@ -154,22 +158,22 @@ block content
               filter#light-blur2
                 feGaussianBlur(stdDeviation="25" x="-50%" y="-50%" width="200%" height="200%")
 
-              mask#mask 
-                image(href="../images/index_page/sunglasses_origin.png" x="50%" y="50%" width="70%" style="transform: translate(-35%, -20%);")
+              mask#sunglasses-mask 
+                image.sunglasses__image--mask(href="../images/index_page/sunglasses_origin.png" x="50%" y="50%" width="70%" style="transform: translate(-35%, -20%);")
 
-            ellipse(cx="32%" cy="67%" rx="80" ry="20" fill="#000" opacity="0.5" filter="url(#blur)")
-            ellipse(cx="69%" cy="67%" rx="80" ry="20" fill="#000" opacity="0.5" filter="url(#blur)")
+            ellipse.sunglasses__shadow(cx="32%" cy="67%" rx="80" ry="20" fill="#000" opacity="0.5" filter="url(#blur)")
+            ellipse.sunglasses__shadow(cx="69%" cy="67%" rx="80" ry="20" fill="#000" opacity="0.5" filter="url(#blur)")
             use(href="#text_sunglasses" fill="#fffa87" filter="url(#light-blur2)")
             use(href="#text_sunglasses" fill="#fffa87" filter="url(#light-blur1)")
             use(href="#text_sunglasses" fill="#fff" filter="url(#text-blur)")
-            image(href="../images/index_page/sunglasses_origin.png" x="50%" y="50%" width="70%" style="transform: translate(-35%, -20%);")
-            use(href="#text_sunglasses" fill="#fff" style="mix-blend-mode: overlay;" mask="url(#mask)")
-            image(href="../images/index_page/sunglasses_frame_nose.png" x="50%" y="50%" width="70%" style="transform: translate(-35%, -20%);")
+            image.sunglasses__image--origin(href="../images/index_page/sunglasses_origin.png" x="50%" y="50%" width="70%" style="transform: translate(-35%, -20%);")
+            use(href="#text_sunglasses" fill="#fff" style="mix-blend-mode: overlay;" mask="url(#sunglasses-mask)")
+            image.sunglasses__image--frame(href="../images/index_page/sunglasses_frame_nose.png" x="50%" y="50%" width="70%" style="transform: translate(-35%, -20%);")
 
       .sunglasses-section__card.card.card--2
         .card__inner
           .card__image-box
-            .img-wrap
+            .img-wrap.fade-in.fade-in--slide-up
               img(src="../images/sunglasses/Recoleta_Sun_Silver_matte_model1-1.jpg" alt="image")
           .card__description-box
             .line.line--horizontal
@@ -188,7 +192,7 @@ block content
               h2.description-box__subtitle.subtitle WHY SCREEN GLASSES
               p.description-box__description.description We live totally surrounded by screens, spending almost nine hours a day, on average, in front of digital devices. All these devices emit blue light, and since our eyes aren't protected against this overexposure, the light can be detrimental.
           .card__image-box 
-            .img-wrap 
+            .img-wrap.fade-in.fade-in--slide-up 
               img(src="../images/sunglasses/Ginza_Sun_Black_noir_model1-2.jpg" alt="image")
 
       .sunglasses-section__card.card.card--4 
@@ -201,8 +205,8 @@ block content
                 let fileName = product.productName.replace(" ", "_") + "_" + product.productColor.replace(" ", "_") + "_front.jpg";
                 let productImgPath = "../images/sunglasses/" + fileName;
               a.cell(href="")
-                .cell__img-wrap 
-                  img(src=productImgPath, alt="image")
+                .cell__img-wrap.flex--center 
+                  img.fade-in.fade-in--slide-left(src=productImgPath, alt="image")
                 .cell__detail-wrap
                   .cell-detail 
                     .cell-detail__text.cell-detail__text--name #{product.productName}
@@ -213,7 +217,7 @@ block content
               let fileName = product.productName.replace(" ", "_") + "_" + product.productColor.replace(" ", "_") + "_front.jpg";
               let productImgPath = '../images/sunglasses/' + fileName;
             a.cell(href="")
-              .cell__img-wrap.cell__img-wrap--horizontal
+              .cell__img-wrap.cell__img-wrap--horizontal.flex--center.fade-in.fade-in--slide-up
                 img(src=productImgPath alt="image")
               .cell__detail-wrap
                 .cell-detail
@@ -227,12 +231,13 @@ block content
               p.link--paragraph Browse more glasses. There are a lot of sunglasses
               .link--image-wrap
                 img.image--arrow(src="https://img.icons8.com/external-kmg-design-glyph-kmg-design/64/6668E2/external-right-arrow-arrows-kmg-design-glyph-kmg-design-1.png")
-            .sunglasses-section__top--image-wrap
-              .description-wrap
+            .sunglasses-section__top--image-wrap.fade-in.fade-in--slide-up
+              .description-wrap.fade-in.fade-in--slide-up
                 p.description Round sunglasses have never been so stylish!
           .sunglasses-section__bottom
             span.bottom__text.text--bluelight-glasses Sunglasses
             span.bottom__text.text--barner Barner
+
     section.footer
       .footer__inner 
         .footer__top
@@ -245,5 +250,5 @@ block content
             .image-wrap 
               img(src="../images/svg/glasses_icon.svg", alt="glasses")
         .line--horizontal
-        .footer__bottom
+        .footer__bottom.flex--center
           h2 Barner Barner

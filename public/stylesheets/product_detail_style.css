@@ -19,7 +19,6 @@
     .main__top .product__shop .btn--add-to-cart {
       padding: 20px 120px;
       border-radius: 0;
-      border: none;
       color: white;
       background: #6668E2;
       font-size: 1.6em;
@@ -72,9 +71,7 @@
 
 .main__top .aside {
   width: 270px;
-  margin: 0 40px 0 80px;
-  display: flex;
-  justify-content: center; }
+  margin: 0 40px 0 80px; }
   .main__top .aside__inner {
     display: flex;
     flex-direction: column;
@@ -155,9 +152,6 @@
 
 .main__footer {
   background-color: #6668E2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 120px;
   margin-top: 80px; }
   .main__footer a {

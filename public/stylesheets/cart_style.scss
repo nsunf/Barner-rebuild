@@ -18,6 +18,12 @@
         box-sizing: border-box;
         display: flex;
         justify-content: space-between;
+        align-items: center;
+        .top__img-wrap--delete-selected {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
     }
 }
 
@@ -46,9 +52,6 @@
 
     .cell__checkbox {
         width: 20%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
     }
 
     .cell__content {
@@ -146,10 +149,13 @@
         input {
             color: white;
             background: $main-color;
-            border: none;
             padding: 20px 80px;
 
             font-size: 2.4em;
+            &:hover {
+                cursor: pointer;
+                background-color: lighten($color: $main-color, $amount: 10%);
+            }
         }
     }
 }

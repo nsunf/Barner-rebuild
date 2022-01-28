@@ -31,7 +31,6 @@
                 &--add-to-cart {
                     padding: 20px 120px;
                     border-radius: 0;
-                    border: none;
 
                     color: white;
                     background: $main-color;
@@ -109,8 +108,6 @@
     .aside {
         width: 270px;
         margin: 0 40px 0 80px;
-        display: flex;
-        justify-content: center;
 
         &__inner {
             display: flex;
@@ -224,10 +221,6 @@
 
 .main__footer {
     background-color: $main-color;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
     height: 120px;
     margin-top: 80px;

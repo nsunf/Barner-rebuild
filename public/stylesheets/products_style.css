@@ -3,9 +3,6 @@
   margin: 0 40px;
   border-bottom: 1px solid #6668E2; }
   .main__top .top__image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 80vh; }
     .main__top .top__image--glasses {
       width: 48%; }
@@ -49,10 +46,7 @@
   gap: 20px; }
   .main__body .option__item {
     cursor: pointer;
-    display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
     padding: 4px 8px;
     border-radius: 8px; }
   .main__body .option__text {
@@ -77,10 +71,7 @@
   margin: 0 64px; }
 
 .main__body .body__products-list .cell {
-  width: calc(100% / 3);
-  display: flex;
-  justify-content: center;
-  align-items: center; }
+  width: calc(100% / 3); }
   .main__body .body__products-list .cell__link {
     margin: 2%;
     position: relative;
@@ -108,9 +99,6 @@
 
 .main__footer {
   background-color: #6668E2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 120px;
   margin-top: 80px; }
   .main__footer a {

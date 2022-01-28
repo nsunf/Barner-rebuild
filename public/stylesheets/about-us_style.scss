@@ -71,10 +71,6 @@
         flex-shrink: 0;
         width: 50%;
 
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
         svg {
             width: 60%;
             height: 60%;
@@ -112,10 +108,7 @@
 }
 
 .our-vision {
-    display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     
     margin: 80px 20%;
 
@@ -134,10 +127,6 @@
 
 .main__footer {
     background-color: $main-color;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
     height: 120px;
     margin-top: 80px;
