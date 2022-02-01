@@ -3,12 +3,30 @@ extends layout
 block styles 
   link(rel='stylesheet', href='/stylesheets/products_style.css')
 
+block scripts 
+  script(src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js")
+  script(src="/javascripts/products_script.js")
+
 block content 
+  script let productList = !{JSON.stringify(product_data)}; let title = "#{title}";
   -
-    function getFileNameFromImgURL(url) {
-        let startIndex = url.indexOf('products/');
-        let endIndex = url.indexOf('?v=');
-        return url.slice(startIndex + 9, endIndex);
+    function sortOption(x, y, optionIndex) {
+      switch (optionIndex) {
+        case 0:
+          return () => { if (x.productName > y.productName) { return 1 } else { return -1 } }
+        case 1: 
+          return () => { if (x.productName < y.productName) { return 1 } else { return -1 }} 
+        case 2:
+          let a1 = x.productDisCountedPrice != "" ? x.productDisCountedPrice : x.productPrice;
+          let b1 = y.productDisCountedPrice != "" ? y.productDisCountedPrice : y.productPrice;
+          return () => { if (a1 > b1) { return 1 } else { return -1 }}
+        case 3: 
+          let a2 = x.productDisCountedPrice != "" ? x.productDisCountedPrice : x.productPrice;
+          let b2 = y.productDisCountedPrice != "" ? y.productDisCountedPrice : y.productPrice;
+          return () => { if (a2 < b2) { return 1 } else { return -1 }};
+        default: 
+          return () => {return 1};
+      }
     }
 
   mixin arrow(isUp)
@@ -44,36 +62,37 @@ block content
 
           .option-wrap.folded
             ul.option
-              li.option__item.flex--center.option__item--selected
-                span.option__text ABC 
-                + arrow(true)
-              li.option__item.flex--center
+              li.option__item.flex--center.option__item--selected(data-index="0")
                 span.option__text ABC 
                 + arrow(false)
-              li.option__item.flex--center
-                span.option__text Price 
+              li.option__item.flex--center(data-index="1")
+                span.option__text ABC 
                 + arrow(true)
-              li.option__item.flex--center
+              li.option__item.flex--center(data-index="2")
                 span.option__text Price 
                 + arrow(false)
+              li.option__item.flex--center(data-index="3")
+                span.option__text Price 
+                + arrow(true)
       .body__products-list
-        .products-list__inner 
-          each product in product_data
-            - let path = "/product/" + title + "/" + product.productName.replace("í", "i").replace(" ", "_") + "/" + product.productColor.replace(" ", "_");
-            .cell.flex--center
-              a.cell__link(href=path) 
-                -
-                  let fileName = product.productName.replace(" ", "_") + "_" + product.productColor.replace(" ", "_") + "_front.jpg";
+        //- .products-list__inner 
+          //- - let test = product_data.sort((x, y) => sortOption(x, y, selectedIndex));
+          //- each product in test
+          //-   - let path = "/product/" + title + "/" + product.productName.replace("í", "i").replace(" ", "_") + "/" + product.productColor.replace(" ", "_");
+          //-   .cell.flex--center
+          //-     a.cell__link(href=path) 
+          //-       -
+          //-         let fileName = product.productName.replace(" ", "_") + "_" + product.productColor.replace(" ", "_") + "_front.jpg";
 
-                if title == "Eyeglasses"
-                  img.cell__product-img(src="../images/glasses/" + fileName, alt="")
-                else
-                  img.cell__product-img(src="../images/sunglasses/" + fileName, alt="")
+          //-       if title == "Eyeglasses"
+          //-         img.cell__product-img(src="../images/glasses/" + fileName, alt="")
+          //-       else
+          //-         img.cell__product-img(src="../images/sunglasses/" + fileName, alt="")
 
-                .cell__context 
-                  span.context__text.context__text--name #{product.productName}
-                  span.context__text.context__text--price #{product.productPrice}
-                  span.context__text.context__text--color #{product.productColor}
+          //-       .cell__context 
+          //-         span.context__text.context__text--name #{product.productName}
+          //-         span.context__text.context__text--price #{product.productPrice}
+          //-         span.context__text.context__text--color #{product.productColor}
 
     section.main__footer.flex--center
       a(href="/") Back to Main

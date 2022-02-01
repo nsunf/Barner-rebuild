@@ -40,6 +40,10 @@
 .main__body .option-wrap {
   transition: 250ms ease-in-out; }
 
+.main__body .folded {
+  width: 0px;
+  overflow: hidden; }
+
 .main__body .option {
   display: flex;
   margin: 0 40px;

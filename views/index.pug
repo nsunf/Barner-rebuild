@@ -4,17 +4,9 @@ block styles
   link(rel='stylesheet', href='/stylesheets/index_style.css')
 
 block scripts 
-  script(src="/animejs/lib/anime.min.js")
   script(src="/javascripts/index_script.js")
 
 block content
-  -
-    function getFileNameFromImgURL(url) {
-        let startIndex = url.indexOf('products/');
-        let endIndex = url.indexOf('?v=');
-        return url.slice(startIndex + 9, endIndex);
-    }
-
   - 
     function getRandomNumArr(cnt, maxNum) {
       var productsNums = [];

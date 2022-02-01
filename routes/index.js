@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var fs = require('fs');
+var axios = require('axios');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -18,7 +19,7 @@ router.get('/products/:category', function(req, res, next) {
   if (cat == 'Eyeglasses') {
     fs.readFile('public/javascripts/glasses_products_data.json', 'utf-8', (err, data) => {
       let decodedData = JSON.parse(data);
-      res.render('products', { title: req.params.category, product_data: decodedData })
+      res.render('products', { title: req.params.category, product_data: decodedData, testest: "Halo", layout: false })
     })
   } else if (cat == 'Sunglasses') {
     fs.readFile('public/javascripts/sunglasses_products_data.json', 'utf-8', (err, data) => {
@@ -26,6 +27,10 @@ router.get('/products/:category', function(req, res, next) {
       res.render('products', { title: req.params.category, product_data: decodedData })
     })
   }
+})
+
+router.post('/products/:category', function(req, res, next) {
+  res.send(req.body.test)
 })
 
 router.get('/product/:category/:name/:color', function(req, res, next) {
