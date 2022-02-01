@@ -5,11 +5,11 @@ block styles
 
 block content 
   -
-    function getFileNameFromImgURL(url) {
-      let startIndex = url.indexOf('products/');
-      let endIndex = url.indexOf('?v=');
-      return url.slice(startIndex + 9, endIndex);
-    }
+    //- function getFileNameFromImgURL(url) {
+    //-   let startIndex = url.indexOf('products/');
+    //-   let endIndex = url.indexOf('?v=');
+    //-   return url.slice(startIndex + 9, endIndex);
+    //- }
 
     let fileNamePrefix = product_data.productName.replace(" ", "_") + "_" + product_data.productColor.replace(" ", "_");
   .main
@@ -38,12 +38,14 @@ block content
               .color-set__inner
                 each color in product_data.colorSet
                   - let path = "../../../images/colorImages/" + color.replace(" ", "-") + ".png";
+                  
                   if color.toLowerCase() == product_data.productColor.toLowerCase()
-                    .color__item.color__item--selected 
+                    a.color__item.color__item--selected(href="") 
                       svg(viewbox="0 0 32 32" width="50px" hieght="50px")
                         image(href=path width="50px" height="50px" x="16px" y="16px" style="transform: translate(-25px, -25px)")
                   else
-                    .color__item 
+                    - let link = "/product/" + category + "/" + product_data.productName.replace("í", "i").replace(" ", "_") + "/" + color.replace(" ", "_");
+                    a.color__item(href=link)
                       svg(viewbox="0 0 32 32" width="50px" hieght="50px")
                         image(href=path width="50px" height="50px" x="16px" y="16px" style="transform: translate(-25px, -25px)")
             .btn
@@ -56,7 +58,8 @@ block content
                 let product = product_data_list[randomNum];
                 let asideFileName = product.productName.replace(" ", "_") + "_" + product.productColor.replace(" ", "_") + "_front.jpg"
                 let path = category == "Eyeglasses" ? "../../../images/glasses/" + asideFileName : "../../../images/sunglasses/" + asideFileName;
-              .another-product
+                let link = "/product/" + category + "/" + product.productName.replace("í", "i").replace(" ", "_") + "/" + product.productColor.replace(" ", "_");
+              a.another-product(href=link)
                 img(src=path, alt="image")
     .line--divider
     .main__body
@@ -65,7 +68,7 @@ block content
           .paragraph-wrap
             p!= product_data.asides.join("<br/><br/>")
           .line--horizontal
-        .img-wrap
+        .img-wrap.fade-in.fade-in--slide-up
           if category == "Eyeglasses"
             - 
               let sideImgUrl = "../../../images/glasses/" + fileNamePrefix + "_side.jpg";
@@ -82,30 +85,33 @@ block content
             let lensMaterial = product_data.additionalInfo.filter(x => x.title == "Lens Material")[0].contents;
             let frameMaterial = product_data.additionalInfo.filter(x => x.title == "Frame Material")[0].contents;
           svg(viewbox="0 0 1240 1240")
-            image(href=upAngleImgUrl)
-            circle(cx="220" cy="640" r="16" fill="#6668e2")
-            path(d="M220 640 l 100 400 h 200" fill="none" stroke="#6668e2" stroke-width="2")
-            text(x="336" y="1024" font-size="3em" font-family="Avenir" font-weight="900" fill="#6668e2")= lensMaterial
+            image(href=upAngleImgUrl).fade-in.fade-in--slide-up
+            g.fade-in.fade-in--slide-up
+              circle(cx="220" cy="640" r="16" fill="#6668e2")
+              path(d="M220 640 l 100 400 h 200" fill="none" stroke="#6668e2" stroke-width="2")
+              text(x="336" y="1024" font-size="3em" font-family="Avenir" font-weight="900" fill="#6668e2")= lensMaterial
 
             if frameMaterial.includes("/")
               -
                 let frontMat = frameMaterial.match(/(?<=- ).+(?= \/)/g); 
                 let templesMat = frameMaterial.match(/(?<=: ).+/g);
-              circle(cx="640" cy="456" r="16" fill="#6668e2")
-              path(d="M640 456 l 80 -160 h 200" fill="none" stroke="#6668e2" stroke-width="2")
-              text(x="736" y="280" font-size="3em" font-family="Avenir" font-weight="900" fill="#6668e2")= templesMat
-
-              circle(cx="690" cy="700" r="16" fill="#6668e2")
-              path(d="M690 700 l 50 200 h 200" fill="none" stroke="#6668e2" stroke-width="2")
-              text(x="756" y="884" font-size="3em" font-family="Avenir" font-weight="900" fill="#6668e2")= frontMat
+              g.fade-in.fade-in--slide-up
+                circle(cx="640" cy="456" r="16" fill="#6668e2")
+                path(d="M640 456 l 80 -160 h 200" fill="none" stroke="#6668e2" stroke-width="2")
+                text(x="736" y="280" font-size="3em" font-family="Avenir" font-weight="900" fill="#6668e2")= templesMat
+              g.fade-in.fade-in--slide-up
+                circle(cx="690" cy="700" r="16" fill="#6668e2")
+                path(d="M690 700 l 50 200 h 200" fill="none" stroke="#6668e2" stroke-width="2")
+                text(x="756" y="884" font-size="3em" font-family="Avenir" font-weight="900" fill="#6668e2")= frontMat
             else
-              circle(cx="220" cy="640" r="16" fill="#6668e2")
-              path(d="M220 640 l 100 400 h 200" fill="none" stroke="#6668e2" stroke-width="2")
-              text(x="336" y="1024" font-size="3em" font-family="Avenir" font-weight="900" fill="#6668e2")= lensMaterial
-
-              circle(cx="690" cy="700" r="16" fill="#6668e2")
-              path(d="M690 700 l 50 200 h 200" fill="none" stroke="#6668e2" stroke-width="2")
-              text(x="756" y="884" font-size="3em" font-family="Avenir" font-weight="900" fill="#6668e2")= frameMaterial
+              g.fade-in.fade-in--slide-up
+                circle(cx="220" cy="640" r="16" fill="#6668e2")
+                path(d="M220 640 l 100 400 h 200" fill="none" stroke="#6668e2" stroke-width="2")
+                text(x="336" y="1024" font-size="3em" font-family="Avenir" font-weight="900" fill="#6668e2")= lensMaterial
+              g.fade-in.fade-in--slide-up
+                circle(cx="690" cy="700" r="16" fill="#6668e2")
+                path(d="M690 700 l 50 200 h 200" fill="none" stroke="#6668e2" stroke-width="2")
+                text(x="756" y="884" font-size="3em" font-family="Avenir" font-weight="900" fill="#6668e2")= frameMaterial
           
         .description
           .list-wrap 
@@ -121,11 +127,11 @@ block content
           img(src= packageImgUrl, alt="")
 
         .grid.grid--right
-          - let aaa = category == "Eyeglasses" ? "../../../images/glasses/" + fileNamePrefix : "../../../images/sunglasses/" + fileNamePrefix;
+          - let imgPath = category == "Eyeglasses" ? "../../../images/glasses/" + fileNamePrefix : "../../../images/sunglasses/" + fileNamePrefix;
 
-          img(src=aaa + "_model1-1.jpg", alt="")
-          img(src=aaa + "_model2-1.jpg", alt="")
-          img(src=aaa + "_model1-2.jpg", alt="")
-          img(src=aaa + "_model2-2.jpg", alt="")
+          img(src=imgPath + "_model1-1.jpg", alt="").fade-in.fade-in--slide-up
+          img(src=imgPath + "_model2-1.jpg", alt="").fade-in.fade-in--slide-up
+          img(src=imgPath + "_model1-2.jpg", alt="").fade-in.fade-in--slide-up
+          img(src=imgPath + "_model2-2.jpg", alt="").fade-in.fade-in--slide-up
   section.main__footer.flex--center
       a(href="/") Back to Main
