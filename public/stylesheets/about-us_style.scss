@@ -22,6 +22,7 @@
 
         .our-story__img-wrap img {
             width: 240px;
+            opacity: 0;
         }
 
         .our-story__svg-wrap {
@@ -30,6 +31,7 @@
             .our-story__svg {
                 width: 500px;
                 height: 375px;
+                overflow: visible;
             }
         }
     }
@@ -74,6 +76,7 @@
         svg {
             width: 60%;
             height: 60%;
+            overflow: visible;
         }
     }
 
@@ -111,6 +114,10 @@
     flex-direction: column;
     
     margin: 80px 20%;
+
+    svg text {
+        opacity: 0;
+    }
 
     &__paragraph {
         display: flex;

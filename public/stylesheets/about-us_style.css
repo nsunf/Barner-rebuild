@@ -13,12 +13,14 @@
     justify-content: flex-end;
     align-items: flex-end; }
     .our-story__left-side .our-story__img-wrap img {
-      width: 240px; }
+      width: 240px;
+      opacity: 0; }
     .our-story__left-side .our-story__svg-wrap {
       margin: 20px 40px; }
       .our-story__left-side .our-story__svg-wrap .our-story__svg {
         width: 500px;
-        height: 375px; }
+        height: 375px;
+        overflow: visible; }
   .our-story__right-side {
     flex-grow: 1;
     display: flex;
@@ -46,7 +48,8 @@
     width: 50%; }
     .how-we-started__left-side svg {
       width: 60%;
-      height: 60%; }
+      height: 60%;
+      overflow: visible; }
   .how-we-started__right-side {
     width: 50%;
     display: flex;
@@ -66,6 +69,8 @@
 .our-vision {
   flex-direction: column;
   margin: 80px 20%; }
+  .our-vision svg text {
+    opacity: 0; }
   .our-vision__paragraph {
     display: flex;
     flex-direction: column;
