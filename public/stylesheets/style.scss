@@ -130,8 +130,9 @@ input {
     a {
         width: 44px;
         height: 44px;
+        cursor: pointer;
     }
-    
+         
     path {
         fill: $main-color;
     }
@@ -142,4 +143,48 @@ input {
             fill: white;
         }
     }
+}
+
+.header__search {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+
+    overflow: hidden;
+    width: 44px;
+
+    transition: 500ms;
+
+    a {
+        flex-shrink: 0;
+    }
+
+    input {
+        color: white;
+        background-color: $main-color;
+        padding: 0 4px;
+        margin-left: 8px;
+    }
+    input::placeholder {
+        color: #ddd;
+    }
+    input:focus {
+        outline: none;
+    }
+}
+
+.header__search--open {
+    background: $main-color;
+    border-radius: 8px;
+    overflow: hidden;
+
+    width: 214px;
+
+    path {
+        fill: white;
+    }
+}
+
+.display--none {
+    display: none;
 }

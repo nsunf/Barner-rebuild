@@ -16,3 +16,14 @@ window.addEventListener('scroll', () => {
         getElementClientRect(el);
     };
 })
+
+window.addEventListener('click', (e) => {
+    let headerSearhEl = document.querySelector('.header__search');
+
+    if (headerSearhEl.contains(e.target)) {
+        headerSearhEl.classList.add('header__search--open')
+    } else {
+        headerSearhEl.classList.remove('header__search--open');
+    }
+})
+

@@ -85,12 +85,43 @@ input {
   border-radius: 8px; }
   .header__cart a, .header__search a {
     width: 44px;
-    height: 44px; }
+    height: 44px;
+    cursor: pointer; }
   .header__cart path, .header__search path {
     fill: #6668E2; }
   .header__cart:hover, .header__search:hover {
     background-color: #6668E2; }
     .header__cart:hover path, .header__search:hover path {
       fill: white; }
+
+.header__search {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  overflow: hidden;
+  width: 44px;
+  transition: 500ms; }
+  .header__search a {
+    flex-shrink: 0; }
+  .header__search input {
+    color: white;
+    background-color: #6668E2;
+    padding: 0 4px;
+    margin-left: 8px; }
+  .header__search input::placeholder {
+    color: #ddd; }
+  .header__search input:focus {
+    outline: none; }
+
+.header__search--open {
+  background: #6668E2;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 214px; }
+  .header__search--open path {
+    fill: white; }
+
+.display--none {
+  display: none; }
 
 /*# sourceMappingURL=style.css.map */
