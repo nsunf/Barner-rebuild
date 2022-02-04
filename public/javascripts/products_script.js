@@ -42,13 +42,8 @@ function productGrid(dataList) {
         
         var link; 
         var imgPath;
-        if (title == "Eyeglasses") {
-            link = "/product/" + title + "/" + data.productName.replace("í", "i").replace(" ", "_") + "/" + data.productColor.replace(" ", "_");
-            imgPath = "../images/glasses/" + data.productName.replace(" ", "_") + "_" + data.productColor.replace(" ", "_") + "_front.jpg";
-        } else {
-            link = "/product/" + title + "/" + data.productName.replace("í", "i").replace(" ", "_") + "/" + data.productColor.replace(" ", "_");
-            imgPath = "../images/sunglasses/" + data.productName.replace(" ", "_") + "_" + data.productColor.replace(" ", "_") + "_front.jpg";
-        }
+        link = "/product/" + title + "/" + data.productName.replace("í", "i").replace(" ", "_") + "/" + data.productColor.replace(" ", "_");
+        imgPath = "../images/glasses/" + data.productName.replace(" ", "_") + "_" + data.productColor.replace(" ", "_") + "_front.jpg";
         cellLinkNode.setAttribute('href', link);
         cellProductImgNode.setAttribute('src', imgPath);
 

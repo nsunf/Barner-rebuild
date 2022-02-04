@@ -8,7 +8,8 @@ document.querySelector('.btn--add-to-cart').addEventListener('click', () => {
     axios.post('/addToCart', {
         data: {
             productName: productName,
-            productColor: productColor
+            productColor: productColor,
+            productType: productType
         }
     })
 })

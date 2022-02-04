@@ -58,19 +58,23 @@ router.get('/about-us', function(req, res, next) {
 
 router.get('/cart', function(req, res, next) {
   if (req.cookies.cart) {
-    fs.readFile('public/javascripts/json/glasses_products_data.json', 'utf-8', (err, data) => {
-      let decodedData = JSON.parse(data);
-      var productList = [];
-      
-      decodedData.forEach(x => {
-        req.cookies.cart.forEach(y => {
-          if (x.productName == y.productName && x.productColor == y.productColor) {
-            productList.push({product: x, id: y.id});
-          }
+    fs.readFile('public/javascripts/json/glasses_products_data.json', 'utf-8', (err, glassesData) => {
+      fs.readFile('public/javascripts/json/sunglasses_products_data.json', 'utf-8', (err, sunglassesData) => {
+        let decodedGlassesData = JSON.parse(glassesData);
+        let decodedSunglassesData = JSON.parse(sunglassesData);
+        let aaa = decodedGlassesData.concat(decodedSunglassesData);
+        var productList = [];
+        
+        aaa.forEach(x => {
+          req.cookies.cart.forEach(y => {
+            if (x.productName == y.productName && x.productColor == y.productColor) {
+              productList.push({product: x, id: y.id});
+            }
+          })
         })
+  
+        res.render('cart', { title: "Cart", productList: productList });
       })
-
-      res.render('cart', { title: "Cart", productList: productList });
     })
   } else {
     res.render('cart', { title: "Cart", productList: [] });

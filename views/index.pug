@@ -166,7 +166,7 @@ block content
         .card__inner
           .card__image-box
             .img-wrap.fade-in.fade-in--slide-up
-              img(src="../images/sunglasses/Recoleta_Sun_Silver_matte_model1-1.jpg" alt="image")
+              img(src="../images/glasses/Recoleta_Sun_Silver_matte_model1-1.jpg" alt="image")
           .card__description-box
             .line.line--horizontal
             .description-box__division
@@ -185,7 +185,7 @@ block content
               p.description-box__description.description We live totally surrounded by screens, spending almost nine hours a day, on average, in front of digital devices. All these devices emit blue light, and since our eyes aren't protected against this overexposure, the light can be detrimental.
           .card__image-box 
             .img-wrap.fade-in.fade-in--slide-up 
-              img(src="../images/sunglasses/Ginza_Sun_Black_noir_model1-2.jpg" alt="image")
+              img(src="../images/glasses/Ginza_Sun_Black_noir_model1-2.jpg" alt="image")
 
       .sunglasses-section__card.card.card--4 
         .card__inner.product-grid-view
@@ -195,7 +195,7 @@ block content
               - 
                 let product = sunglasses_data[val];
                 let fileName = product.productName.replace(" ", "_") + "_" + product.productColor.replace(" ", "_") + "_front.jpg";
-                let productImgPath = "../images/sunglasses/" + fileName;
+                let productImgPath = "../images/glasses/" + fileName;
               a.cell(href="")
                 .cell__img-wrap.flex--center 
                   img.fade-in.fade-in--slide-left(src=productImgPath, alt="image")
@@ -207,7 +207,7 @@ block content
             - 
               let product = sunglasses_data[3];
               let fileName = product.productName.replace(" ", "_") + "_" + product.productColor.replace(" ", "_") + "_front.jpg";
-              let productImgPath = '../images/sunglasses/' + fileName;
+              let productImgPath = '../images/glasses/' + fileName;
             a.cell(href="")
               .cell__img-wrap.cell__img-wrap--horizontal.flex--center.fade-in.fade-in--slide-up
                 img(src=productImgPath alt="image")

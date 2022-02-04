@@ -14,7 +14,9 @@ block content
         img(src="../../../images/svg/check-unfill.svg", alt="")
       .cell__content
         .cell__image
-          - let path = '../../../images/glasses/' + product.productName.replace(' ', '_') + '_' + product.productColor.replace(' ', '_') + '_front.jpg';
+          - 
+            let fileName = product.productName.replace(' ', '_') + '_' + product.productColor.replace(' ', '_') + '_front.jpg';
+            let path = '../../../images/glasses/' + fileName;
           img(src=path, alt="product image")
         .cell__text
           span.text--name!= product.productName + " " + product.productColor

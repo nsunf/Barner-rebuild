@@ -63,6 +63,13 @@ document.querySelectorAll('.cell__delete img').forEach(el => {
         let index = this.parentNode.dataset.index;
         deleteProduct(index);
     })
+})
 
-    
+window.addEventListener('load', () => {
+    if (document.querySelectorAll('.cell').length == 0) {
+        let btn = document.querySelector('.payment input'); 
+        btn.setAttribute('disabled', true);
+        btn.style.backgroundColor = '#eee';
+        btn.style.cursor = 'default';
+    }
 })
