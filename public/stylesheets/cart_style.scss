@@ -19,6 +19,11 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+
+        .top__img-wrap {
+            cursor: pointer;
+        }
+
         .top__img-wrap--delete-selected {
             display: flex;
             justify-content: center;
@@ -52,6 +57,9 @@
 
     .cell__checkbox {
         width: 20%;
+        img {
+            cursor: pointer;
+        }
     }
 
     .cell__content {
@@ -89,6 +97,13 @@
         color: black;
     }
 
+    .cell__delete img {
+        cursor: pointer;
+    }
+
+    .cell--checked {
+        content: url("../images/svg/akar-icons_circle-check-fill.svg");
+    }
 }
 
 .body__right {

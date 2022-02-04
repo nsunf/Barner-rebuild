@@ -3,15 +3,14 @@ extends layout
 block styles 
   link(rel='stylesheet', href='/stylesheets/product_detail_style.css')
 
-block content 
-  -
-    //- function getFileNameFromImgURL(url) {
-    //-   let startIndex = url.indexOf('products/');
-    //-   let endIndex = url.indexOf('?v=');
-    //-   return url.slice(startIndex + 9, endIndex);
-    //- }
+block scripts 
+  script(src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js")
+  script(src="/javascripts/product_detail_script.js")
 
-    let fileNamePrefix = product_data.productName.replace(" ", "_") + "_" + product_data.productColor.replace(" ", "_");
+block content 
+  script let product_data = !{JSON.stringify(product_data)};
+
+  -  let fileNamePrefix = product_data.productName.replace(" ", "_") + "_" + product_data.productColor.replace(" ", "_");
   .main
     .main__top 
       .top__inner

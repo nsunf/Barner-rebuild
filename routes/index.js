@@ -1,11 +1,12 @@
 var express = require('express');
 var router = express.Router();
 var fs = require('fs');
+var { v4: uuid4 } = require('uuid');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  fs.readFile('public/javascripts/glasses_products_data.json', 'utf-8', (err, glasses_data) => {
-    fs.readFile('public/javascripts/sunglasses_products_data.json', 'utf-8', (err, sunglasses_data) => {
+  fs.readFile('public/javascripts/json/glasses_products_data.json', 'utf-8', (err, glasses_data) => {
+    fs.readFile('public/javascripts/json/sunglasses_products_data.json', 'utf-8', (err, sunglasses_data) => {
       let glassesDecodedData = JSON.parse(glasses_data);
       let sunglassesDecodedData = JSON.parse(sunglasses_data);
       res.render('index', { title: 'Barner', glasses_data: glassesDecodedData, sunglasses_data: sunglassesDecodedData });
@@ -16,12 +17,12 @@ router.get('/', function(req, res, next) {
 router.get('/products/:category', function(req, res, next) {
   let cat = req.params.category;
   if (cat == 'Eyeglasses') {
-    fs.readFile('public/javascripts/glasses_products_data.json', 'utf-8', (err, data) => {
+    fs.readFile('public/javascripts/json/glasses_products_data.json', 'utf-8', (err, data) => {
       let decodedData = JSON.parse(data);
       res.render('products', { title: req.params.category, product_data: decodedData, testest: "Halo", layout: false })
     })
   } else if (cat == 'Sunglasses') {
-    fs.readFile('public/javascripts/sunglasses_products_data.json', 'utf-8', (err, data) => {
+    fs.readFile('public/javascripts/json/sunglasses_products_data.json', 'utf-8', (err, data) => {
       let decodedData = JSON.parse(data);
       res.render('products', { title: req.params.category, product_data: decodedData })
     })
@@ -37,13 +38,13 @@ router.get('/product/:category/:name/:color', function(req, res, next) {
   let productColor = req.params.color.replace("_", " ");
 
   if (req.params.category == "Eyeglasses") {
-    fs.readFile('public/javascripts/glasses_products_data.json', 'utf-8', (err, data) => {
+    fs.readFile('public/javascripts/json/glasses_products_data.json', 'utf-8', (err, data) => {
       let decodedData = JSON.parse(data);
       let productData = decodedData.filter(x => x.productName.replace("í", "i") == productName && x.productColor.toLowerCase() == productColor.toLowerCase())[0];
       res.render('product_detail', { title: productName + " - " + productColor, product_data_list: decodedData, product_data: productData, category: req.params.category })
     })
   } else if (req.params.category == "Sunglasses") {
-    fs.readFile('public/javascripts/sunglasses_products_data.json', 'utf-8', (err, data) => {
+    fs.readFile('public/javascripts/json/sunglasses_products_data.json', 'utf-8', (err, data) => {
       let decodedData = JSON.parse(data);
       let productData = decodedData.filter(x => x.productName.replace("í", "i") == productName && x.productColor.toLowerCase() == productColor.toLowerCase())[0];
       res.render('product_detail', { title: productName + " - " + productColor, product_data_list: decodedData, product_data: productData, category: req.params.category })
@@ -56,7 +57,58 @@ router.get('/about-us', function(req, res, next) {
 })
 
 router.get('/cart', function(req, res, next) {
-  res.render('cart', { title: "Cart" });
+  if (req.cookies.cart) {
+    fs.readFile('public/javascripts/json/glasses_products_data.json', 'utf-8', (err, data) => {
+      let decodedData = JSON.parse(data);
+      var productList = [];
+      
+      decodedData.forEach(x => {
+        req.cookies.cart.forEach(y => {
+          if (x.productName == y.productName && x.productColor == y.productColor) {
+            productList.push({product: x, id: y.id});
+          }
+        })
+      })
+
+      res.render('cart', { title: "Cart", productList: productList });
+    })
+  } else {
+    res.render('cart', { title: "Cart", productList: [] });
+  }
+})
+
+router.post('/addToCart', function(req, res, next) {
+  if (!req.cookies.uuid) {
+    res.cookie('uuid', uuid4(), {maxAge: 1000 * 60 * 60 * 24 * 30})
+    res.send('set cookie')
+  } else {
+    var isExist = false
+    if (req.cookies.cart) {
+      if (req.cookies.cart.length > 0) {
+        isExist = true;
+      } 
+    }
+
+    let id = isExist ? req.cookies.cart.sort((x, y) => x.id > y.id)[0].id + 1 : 0;
+    let productData = {...req.body.data, id};
+    let cart = isExist ? [productData].concat(req.cookies.cart) : [productData];
+
+    res.cookie('cart', cart, {maxAge: 1000 * 60 * 60 * 24 * 30})
+    res.send('cookie exist');
+  }
+})
+
+router.post('/cart/delete', function(req, res, next) {
+  var selectedIndices = JSON.parse(req.body.index);
+  var cart = req.cookies.cart;
+  for (var i of selectedIndices) {
+    cart = cart.filter(x => x.id != i);
+  }
+
+  // let editedCart = req.cookies.cart.filter(x => x.id != req.body.index);
+  // console.log(editedCart)
+  res.cookie('cart', cart, {maxAge: 1000 * 60 * 60 * 24 * 30});
+  res.redirect('/cart')
 })
 
 module.exports = router;
