@@ -21,8 +21,8 @@ html
             + isSelected("Eyeglasses", true)
             + isSelected("Sunglasses", true)
         .header__logo
-          .logo 
-            h1 
+          .logo
+            h1.flex--center
               a(href="/") Barner
         .header__nav.header__nav-right
           ul.nav__list
@@ -32,12 +32,22 @@ html
               svg(viewbox="0 0 24 24" width="32px" height="32px")
                 path(d="M19.5 7.3125H16.3125V6.9375C16.3125 4.55625 14.3813 2.625 12 2.625C9.61875 2.625 7.6875 4.55625 7.6875 6.9375V7.3125H4.5C4.08516 7.3125 3.75 7.64766 3.75 8.0625V20.625C3.75 21.0398 4.08516 21.375 4.5 21.375H19.5C19.9148 21.375 20.25 21.0398 20.25 20.625V8.0625C20.25 7.64766 19.9148 7.3125 19.5 7.3125ZM9.375 6.9375C9.375 5.48672 10.5492 4.3125 12 4.3125C13.4508 4.3125 14.625 5.48672 14.625 6.9375V7.3125H9.375V6.9375ZM18.5625 19.6875H5.4375V9H7.6875V11.0625C7.6875 11.1656 7.77187 11.25 7.875 11.25H9.1875C9.29063 11.25 9.375 11.1656 9.375 11.0625V9H14.625V11.0625C14.625 11.1656 14.7094 11.25 14.8125 11.25H16.125C16.2281 11.25 16.3125 11.1656 16.3125 11.0625V9H18.5625V19.6875Z")
           .header__search
-            input(type="text" placeholder="Enter..")
+            //- form(method="post" action="glasses/search")
+            input(type="text" placeholder="Enter.." name="searchTerm")
             a.flex--center
               svg(viewbox="0 0 24 24" width="32px" height="32px")           
                 path(d="M9.5 3C11.2239 3 12.8772 3.68482 14.0962 4.90381C15.3152 6.12279 16 7.77609 16 9.5C16 11.11 15.41 12.59 14.44 13.73L14.71 14H15.5L20.5 19L19 20.5L14 15.5V14.71L13.73 14.44C12.5505 15.4468 11.0507 15.9999 9.5 16C7.77609 16 6.12279 15.3152 4.90381 14.0962C3.68482 12.8772 3 11.2239 3 9.5C3 7.77609 3.68482 6.12279 4.90381 4.90381C6.12279 3.68482 7.77609 3 9.5 3ZM9.5 5C7 5 5 7 5 9.5C5 12 7 14 9.5 14C12 14 14 12 14 9.5C14 7 12 5 9.5 5Z")
+          .search-result
+            //- mixin searchResultCell(name, price) 
+            //-   div.search-result__cell.cell
+            //-     span.cell__text.cell__text--name= name
+            //-     span.cell__text.cell__text--price €#{price}
+            //- +searchResultCell("Lorem ipsum", 23)
+            //- +searchResultCell("Lorem ipsum", 23)
+            //- +searchResultCell("Lorem ipsum", 23)
 
     block content
     script(src="/animejs/lib/anime.min.js")
+    script(src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js")
     script(src="/javascripts/script.js")
     block scripts

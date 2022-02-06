@@ -4,7 +4,6 @@ block styles
   link(rel='stylesheet', href='/stylesheets/product_detail_style.css')
 
 block scripts 
-  script(src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js")
   script(src="/javascripts/product_detail_script.js")
 
 block content 
@@ -37,12 +36,12 @@ block content
                   
                   if color.toLowerCase() == product_data.productColor.toLowerCase()
                     a.color__item.color__item--selected(href="") 
-                      svg(viewbox="0 0 32 32" width="50px" hieght="50px")
+                      svg(viewbox="0 0 32 32" width="100%" hieght="100%")
                         image(href=path width="50px" height="50px" x="16px" y="16px" style="transform: translate(-25px, -25px)")
                   else
                     - let link = "/product/" + category + "/" + product_data.productName.replace("í", "i").replace(" ", "_") + "/" + color.replace(" ", "_");
                     a.color__item(href=link)
-                      svg(viewbox="0 0 32 32" width="50px" hieght="50px")
+                      svg(viewbox="0 0 32 32" width="100%" hieght="100%")
                         image(href=path width="50px" height="50px" x="16px" y="16px" style="transform: translate(-25px, -25px)")
             .btn
               input.btn--add-to-cart(type="button" value="Add To Cart")

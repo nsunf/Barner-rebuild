@@ -5,7 +5,7 @@
     display: flex;
     align-items: flex-end;
 
-    height: 90vh;
+    height: calc(100vw / 4 * 3);
     margin: 0 80px;
 
     &__left-side {
@@ -113,7 +113,7 @@
 .our-vision {
     flex-direction: column;
     
-    margin: 80px 20%;
+    margin: 0 20% 80px 20%;
 
     svg text {
         opacity: 0;
@@ -140,5 +140,54 @@
     a {
         color: white;
         font-size: 3em;
+    }
+}
+
+@media (max-width: 1366px) {
+    .our-story__left-side {
+        width: 30%;
+    }
+    .our-story__left-side .our-story__img-wrap img {
+        width: 160px;
+    }
+    .our-story__left-side .our-story__svg-wrap {
+        position: relative;
+    }
+    .our-story__left-side .our-story__svg-wrap .our-story__svg {
+        position: relative;
+        right: -50%;
+        bottom: -200px;
+    }
+    .our-story__right-side .our-story__title {
+        font-size: 2em;
+    }
+    .our-story__right-side .our-story__paragraph {
+        font-size: 1.2em;
+    }
+
+    .how-we-started {
+        margin: 160px 40px 0 40px;
+    }
+    .how-we-started__left-side svg {
+        width: 80%;
+    }
+    .how-we-started__right-side .how-we-started__paragraph {
+        flex-direction: column;
+        font-size: 1.2em;
+    }
+    .how-we-started__right-side .how-we-started__paragraph p {
+        width: 70%;
+        margin-bottom: 32px;
+    }
+    .how-we-started__right-side .how-we-started__title {
+        font-size: 2em;
+    }
+
+    .our-vision {
+        margin:0 10% 80px 10%;
+    }
+
+    .our-vision__paragraph {
+        font-size: 1.2em;
     }
 }

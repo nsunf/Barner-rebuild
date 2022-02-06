@@ -101,12 +101,18 @@
   .main__body .body__products-list .cell:hover .cell__product-img {
     transform: scale(1.1); }
 
-.main__footer {
-  background-color: #6668E2;
-  height: 120px;
-  margin-top: 80px; }
-  .main__footer a {
-    color: white;
-    font-size: 3em; }
+@media (max-width: 1366px) {
+  .main__top .context__text--head {
+    font-size: 2.4em; }
+  .main__top .context__text--paragraph {
+    font-size: 1em; }
+  .main__body .option__text {
+    font-size: 0.9em; }
+  .main__body .body__products-list .cell .context__text--name {
+    font-size: 1em; }
+  .main__body .body__products-list .cell .context__text--price {
+    font-size: 0.8em; }
+  .main__body .body__products-list .cell .context__text--color {
+    font-size: 0.9em; } }
 
 /*# sourceMappingURL=products_style.css.map */

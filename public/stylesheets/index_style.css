@@ -10,15 +10,16 @@
 .glasses-section .card--1 {
   margin-top: 0; }
   .glasses-section .card--1 .glasses-section__section-header {
-    height: 90vh;
+    height: calc((100vw - 100px) / 7 * 5);
+    width: calc(100vw - 100px);
     margin: 0 50px; }
     .glasses-section .card--1 .glasses-section__section-header .glasses {
       width: 100%;
       background-color: #fff; }
 
 .glasses-section .card--2 {
-  width: 100%;
-  height: 90vh; }
+  width: 100vw;
+  height: calc(100vw / 16 * 9); }
   .glasses-section .card--2 .card__inner {
     display: flex;
     height: 100%;
@@ -131,11 +132,11 @@
     .glasses-section .card--5 .cell__inner:hover .cell__image--hover-view {
       height: 90px; }
     .glasses-section .card--5 .cell__image-wrap {
-      width: 342.85714px;
+      width: calc(100vw / 2 / 21 * 9);
       overflow: hidden;
       position: relative; }
       .glasses-section .card--5 .cell__image-wrap .cell__product-image {
-        width: 800px;
+        width: calc(100vw / 2);
         transform: rotate(90deg); }
       .glasses-section .card--5 .cell__image-wrap .cell__image--hover-view {
         width: 100%;
@@ -166,7 +167,7 @@
     display: flex;
     flex-direction: column;
     width: 100vw;
-    height: 80vh; }
+    height: calc(100vw / 16 * 9); }
   .glasses-section .card--6 .glasses-section__top {
     display: flex;
     flex-direction: row-reverse;
@@ -218,7 +219,7 @@
 .sunglasses-section .card--1 {
   margin-top: 0; }
   .sunglasses-section .card--1 .sunglasses-section__section-header {
-    height: 90vh;
+    height: calc(100vw / 7 * 5);
     margin: 0 50px; }
     .sunglasses-section .card--1 .sunglasses-section__section-header .sunglasses {
       width: 100%;
@@ -226,7 +227,7 @@
 
 .sunglasses-section .card--2 {
   width: 100%;
-  height: 90vh; }
+  height: calc(100vw / 16 * 9); }
   .sunglasses-section .card--2 .card__inner {
     display: flex;
     height: 100%;
@@ -265,7 +266,7 @@
 
 .sunglasses-section .card--3 {
   width: 100%;
-  height: 90vh; }
+  height: calc(100vw / 16 * 9); }
   .sunglasses-section .card--3 .card__inner {
     display: flex;
     height: 100%; }
@@ -288,7 +289,7 @@
         margin: 32px 0; }
       .sunglasses-section .card--3 .card__description-box .description-box__division p {
         text-align: right;
-        width: 28%; }
+        width: 50%; }
   .sunglasses-section .card--3 .card__image-box {
     flex-grow: 1; }
     .sunglasses-section .card--3 .card__image-box .img-wrap {
@@ -297,62 +298,63 @@
         width: 80%;
         aspect-ratio: 3 / 4; }
 
-.sunglasses-section .card--4 .product-grid-view {
-  display: flex;
-  flex-direction: row;
-  margin: 0 0 0 80px; }
-
-.sunglasses-section .card--4 .grid-view .cell {
-  display: flex; }
-  .sunglasses-section .card--4 .grid-view .cell__img-wrap {
-    overflow: hidden; }
-  .sunglasses-section .card--4 .grid-view .cell .cell-detail__text--name {
-    font-size: 1.4em; }
-  .sunglasses-section .card--4 .grid-view .cell .cell-detail__text--color {
-    font-size: 1.2em;
-    color: #C2C2D6; }
-
-.sunglasses-section .card--4 .grid-view__vertical {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: stretch;
-  gap: 80px; }
-  .sunglasses-section .card--4 .grid-view__vertical .cell {
-    border-bottom: 1px solid #6668E2;
+.sunglasses-section .card--4 {
+  width: 100vw;
+  height: calc(100vw / 4 * 3); }
+  .sunglasses-section .card--4 .product-grid-view {
     display: flex;
-    align-items: flex-end; }
-    .sunglasses-section .card--4 .grid-view__vertical .cell__img-wrap {
-      flex-grow: 1;
-      aspect-ratio: 21 / 9;
-      margin: 0 16px 32px 0; }
-      .sunglasses-section .card--4 .grid-view__vertical .cell__img-wrap img {
-        width: 100%; }
-    .sunglasses-section .card--4 .grid-view__vertical .cell__detail-wrap {
-      width: 20%;
-      padding: 0 0 32px 16px;
-      border-left: 1px solid #6668E2; }
-
-.sunglasses-section .card--4 .grid-view__horizontal {
-  width: 40%;
-  flex-grow: 0;
-  padding-left: 80px; }
-  .sunglasses-section .card--4 .grid-view__horizontal .cell {
+    flex-direction: row;
+    margin: 0 0 0 80px; }
+  .sunglasses-section .card--4 .grid-view .cell {
+    display: flex; }
+    .sunglasses-section .card--4 .grid-view .cell__img-wrap {
+      overflow: hidden; }
+    .sunglasses-section .card--4 .grid-view .cell .cell-detail__text--name {
+      font-size: 1.4em; }
+    .sunglasses-section .card--4 .grid-view .cell .cell-detail__text--color {
+      font-size: 1.2em;
+      color: #C2C2D6; }
+  .sunglasses-section .card--4 .grid-view__vertical {
+    flex-grow: 1;
+    display: flex;
     flex-direction: column;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    border-left: 1px solid #6668E2; }
-    .sunglasses-section .card--4 .grid-view__horizontal .cell__img-wrap {
-      flex-grow: 1;
-      width: 70%; }
-      .sunglasses-section .card--4 .grid-view__horizontal .cell__img-wrap img {
-        height: 100%;
-        transform: rotate(90deg); }
-    .sunglasses-section .card--4 .grid-view__horizontal .cell__detail-wrap {
-      width: 70%; }
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 80px; }
+    .sunglasses-section .card--4 .grid-view__vertical .cell {
+      border-bottom: 1px solid #6668E2;
+      display: flex;
+      align-items: flex-end; }
+      .sunglasses-section .card--4 .grid-view__vertical .cell__img-wrap {
+        flex-grow: 1;
+        aspect-ratio: 21 / 9;
+        margin: 0 16px 32px 0; }
+        .sunglasses-section .card--4 .grid-view__vertical .cell__img-wrap img {
+          width: 100%; }
+      .sunglasses-section .card--4 .grid-view__vertical .cell__detail-wrap {
+        flex-shrink: 0;
+        width: 20%;
+        padding: 0 0 32px 16px;
+        border-left: 1px solid #6668E2; }
+  .sunglasses-section .card--4 .grid-view__horizontal {
+    width: 40%;
+    flex-grow: 0;
+    padding-left: 80px; }
+    .sunglasses-section .card--4 .grid-view__horizontal .cell {
+      flex-direction: column;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      border-left: 1px solid #6668E2; }
+      .sunglasses-section .card--4 .grid-view__horizontal .cell__img-wrap {
+        flex-grow: 1;
+        width: 70%; }
+        .sunglasses-section .card--4 .grid-view__horizontal .cell__img-wrap img {
+          height: calc(100vw / 2);
+          transform: rotate(90deg); }
+      .sunglasses-section .card--4 .grid-view__horizontal .cell__detail-wrap {
+        width: 70%; }
 
 .sunglasses-section .card--6 {
   margin-bottom: 80px; }
@@ -360,7 +362,7 @@
     display: flex;
     flex-direction: column;
     width: 100vw;
-    height: 80vh; }
+    height: calc(100vw / 16 * 9); }
   .sunglasses-section .card--6 .sunglasses-section__top {
     display: flex;
     flex-direction: row;
@@ -392,7 +394,7 @@
       height: 100%;
       width: 70%;
       margin: 0 50px;
-      background-image: url("../images/sunglasses/Shoreditch_Sun_Blue_havana_front.jpg");
+      background-image: url("../images/glasses/Shoreditch_Sun_Blue_havana_front.jpg");
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover; }
@@ -428,13 +430,14 @@
       font-size: 2em;
       margin-top: 16px; }
     .footer .footer__top--left {
+      flex-shrink: 0;
       display: flex;
       flex-direction: column;
       align-items: flex-end;
-      width: 48%;
+      width: 30%;
       margin: 40px; }
       .footer .footer__top--left .paragraph-wrap {
-        width: 64%; }
+        width: 80%; }
     .footer .footer__top--right img {
       transform: scale(1.6) translate(200px, 100px); }
   .footer .line--horizontal {
@@ -450,5 +453,45 @@
       text-align: left;
       font-size: 20em;
       white-space: nowrap; }
+
+@media (max-width: 1366px) {
+  .description {
+    font-size: 1.2em; }
+  .glasses-section .card--2 .line--vertical {
+    margin: 0 0 0 80px; }
+  .glasses-section .card--3 .card__image-box {
+    flex-basis: 65%; }
+    .glasses-section .card--3 .card__image-box .image-wrap:nth-child(2) {
+      flex-basis: 100%; }
+  .glasses-section .card--4 .card__description-box {
+    flex-basis: 60%; }
+  .glasses-section .card--4 .card__image-box .keywords-wrap .keywords__el .keywords__text {
+    font-size: 0.9em; }
+  .glasses-section .card--6 .glasses-section__top--link .link--paragraph, .sunglasses-section .card--6 .sunglasses-section__top--link .link--paragraph {
+    font-size: 1.2em; }
+  .glasses-section .card--6 .glasses-section__top--image-wrap .description-wrap, .sunglasses-section .card--6 .sunglasses-section__top--image-wrap .description-wrap {
+    font-size: 2.4em; }
+  .glasses-section .card--6 .glasses-section__bottom .bottom__text, .sunglasses-section .card--6 .sunglasses-section__bottom .bottom__text {
+    font-size: 1em; }
+  .sunglasses-section .card--2 .card__description-box {
+    flex-basis: 55%; }
+  .sunglasses-section .card--2 .card__image-box .img-wrap {
+    padding: 0 60px 0 80px; }
+  .sunglasses-section .card--3 .card__description-box {
+    width: 100%; }
+  .sunglasses-section .card--3 .card__description-box .description-box__division p {
+    width: 60%; }
+  .sunglasses-section .card--3 .card__image-box .img-wrap {
+    margin: 0 80px 0 60px; }
+  .sunglasses-section .card--4 .grid-view .cell .cell-detail__text--name {
+    font-size: 1em; }
+  .sunglasses-section .card--4 .grid-view .cell .cell-detail__text--color {
+    font-size: 0.8em; }
+  .footer .footer__top h2 {
+    font-size: 4.2em; }
+  .footer .footer__top p {
+    font-size: 1.4em; }
+  .footer .footer__top--left .paragraph-wrap {
+    width: initial; } }
 
 /*# sourceMappingURL=index_style.css.map */

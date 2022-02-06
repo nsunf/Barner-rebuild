@@ -169,13 +169,26 @@
     }
 }
 
-.main__footer {
-    background-color: $main-color;
 
-    height: 120px;
-    margin-top: 80px;
-    a {
-        color: white;
-        font-size: 3em;
+
+@media (max-width: 1366px) {
+    .main__top .context__text--head {
+        font-size: 2.4em;
+    }
+    .main__top .context__text--paragraph {
+        font-size: 1em;
+    }
+    .main__body .option__text {
+        font-size: 0.9em;
+    }
+
+    .main__body .body__products-list .cell .context__text--name {
+        font-size: 1em;
+    }
+    .main__body .body__products-list .cell .context__text--price {
+        font-size: 0.8em;
+    }
+    .main__body .body__products-list .cell .context__text--color {
+        font-size: 0.9em;
     }
 }

@@ -108,11 +108,20 @@ router.post('/cart/delete', function(req, res, next) {
   for (var i of selectedIndices) {
     cart = cart.filter(x => x.id != i);
   }
-
-  // let editedCart = req.cookies.cart.filter(x => x.id != req.body.index);
-  // console.log(editedCart)
   res.cookie('cart', cart, {maxAge: 1000 * 60 * 60 * 24 * 30});
   res.redirect('/cart')
+})
+
+router.post('/glasses/search', function(req, res, next) {
+  let glassesDataJson = fs.readFileSync('public/javascripts/json/glasses_products_data.json', 'utf-8');
+  let sunlassesDataJson = fs.readFileSync('public/javascripts/json/sunglasses_products_data.json', 'utf-8');
+
+  let decodedGlassesData = JSON.parse(glassesDataJson);
+  let decodedSunglassesData = JSON.parse(sunlassesDataJson);
+
+  let glassesResults = decodedGlassesData.filter(x => x.productName.toLowerCase().includes(req.body.data.value.toLowerCase()));
+  let sunglassesResults = decodedSunglassesData.filter(x => x.productName.toLowerCase().includes(req.body.data.value.toLowerCase()));
+  res.send({ glasses: glassesResults, sunglasses: sunglassesResults});
 })
 
 module.exports = router;

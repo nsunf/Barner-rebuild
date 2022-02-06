@@ -66,24 +66,24 @@ window.addEventListener('scroll', () => {
 
     if (campaignsLaunchedText.getBoundingClientRect().top >= processBarImage.getBoundingClientRect().top) {
         if (isAnimating) return ;
-        anime({targets: processBarRect, duration: 800, fill: '#6668e2', width: '200', begin: () => {isAnimating = true}, complete: () => {isAnimating = false}})
-        anime({targets: processBarImage, duration: 800, fill: '#6668e2', x:'154'})
+        anime({targets: processBarRect, duration: 800, fill: '#6668e2', width: '200px', begin: () => {isAnimating = true}, complete: () => {isAnimating = false}})
+        anime({targets: processBarImage, duration: 800, fill: '#6668e2', x:'154px'})
     } else if (glassesDeliveredText.getBoundingClientRect().top >= processBarImage.getBoundingClientRect().top) {
         if (isAnimating) return ;
-        anime({targets: processBarRect, duration: 800, fill: '#6668e2', width: '325', begin: () => {isAnimating = true}, complete: () => {isAnimating = false}})
-        anime({targets: processBarImage, duration: 800, fill: '#6668e2', x:'279'})
+        anime({targets: processBarRect, duration: 800, fill: '#6668e2', width: '325px', begin: () => {isAnimating = true}, complete: () => {isAnimating = false}})
+        anime({targets: processBarImage, duration: 800, fill: '#6668e2', x:'279px'})
     } else if (backersText.getBoundingClientRect().top >= processBarImage.getBoundingClientRect().top) {
         if (isAnimating) return ;
-        anime({targets: processBarRect, duration: 800, fill: '#5254c0', width: '450', begin: () => {isAnimating = true}, complete: () => {isAnimating = false}})
-        anime({targets: processBarImage, duration: 800, fill: '#5254c0', x:'404'})
+        anime({targets: processBarRect, duration: 800, fill: '#5254c0', width: '450px', begin: () => {isAnimating = true}, complete: () => {isAnimating = false}})
+        anime({targets: processBarImage, duration: 800, fill: '#5254c0', x:'404px'})
     } else if (differentCountriesText.getBoundingClientRect().top >= processBarImage.getBoundingClientRect().top) {
         if (isAnimating) return ;
-        anime({targets: processBarRect, duration: 800, fill: '#3e409f', width: '575', begin: () => {isAnimating = true}, complete: () => {isAnimating = false}})
-        anime({targets: processBarImage, duration: 800, fill: '#3e409f', x:'529'})
+        anime({targets: processBarRect, duration: 800, fill: '#3e409f', width: '575px', begin: () => {isAnimating = true}, complete: () => {isAnimating = false}})
+        anime({targets: processBarImage, duration: 800, fill: '#3e409f', x:'529px'})
     } else {
         if (isAnimating) return ;
-        anime({targets: processBarRect, duration: 800, fill: '#2a2b7d', width: '700', begin: () => {isAnimating = true}, complete: () => {isAnimating = false}})
-        anime({targets: processBarImage, duration: 800, fill: '#2a2b7d', x:'654'})
+        anime({targets: processBarRect, duration: 800, fill: '#2a2b7d', width: '700px', begin: () => {isAnimating = true}, complete: () => {isAnimating = false}})
+        anime({targets: processBarImage, duration: 800, fill: '#2a2b7d', x:'654px'})
     }
 })
 

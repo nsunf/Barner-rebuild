@@ -100,7 +100,7 @@ block content
               let fileName = product.productName.replace(" ", "_") + "_" + product.productColor.replace(" ", "_") + "_front.jpg";
               let productImgPath = "../images/glasses/" + fileName;
             .cell
-              a.cell__inner(href="/")
+              a.cell__inner(href="/product/Eyeglasses/" + product.productName.replace("í", "i").replace(" ", "_") + "/" + product.productColor.replace(" ", "_"))
                 .cell__image-wrap.flex--center.fade-in.fade-in--slide-up
                   img.cell__product-image(src=productImgPath, alt="")
                   .cell__image--hover-view
@@ -196,7 +196,7 @@ block content
                 let product = sunglasses_data[val];
                 let fileName = product.productName.replace(" ", "_") + "_" + product.productColor.replace(" ", "_") + "_front.jpg";
                 let productImgPath = "../images/glasses/" + fileName;
-              a.cell(href="")
+              a.cell(href="/product/Sunglasses/" + product.productName.replace("í", "i").replace(" ", "_") + "/" + product.productColor.replace(" ", "_"))
                 .cell__img-wrap.flex--center 
                   img.fade-in.fade-in--slide-left(src=productImgPath, alt="image")
                 .cell__detail-wrap
@@ -208,7 +208,7 @@ block content
               let product = sunglasses_data[3];
               let fileName = product.productName.replace(" ", "_") + "_" + product.productColor.replace(" ", "_") + "_front.jpg";
               let productImgPath = '../images/glasses/' + fileName;
-            a.cell(href="")
+            a.cell(href="/product/Sunglasses/" + product.productName.replace("í", "i").replace(" ", "_") + "/" + product.productColor.replace(" ", "_"))
               .cell__img-wrap.cell__img-wrap--horizontal.flex--center.fade-in.fade-in--slide-up
                 img(src=productImgPath alt="image")
               .cell__detail-wrap
