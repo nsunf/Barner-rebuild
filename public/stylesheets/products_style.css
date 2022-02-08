@@ -3,7 +3,7 @@
   margin: 0 40px;
   border-bottom: 1px solid #6668E2; }
   .main__top .top__image {
-    height: 80vh; }
+    height: calc((100vw - 80px) / 16 * 9); }
     .main__top .top__image--glasses {
       width: 48%; }
   .main__top .top__context {
@@ -17,7 +17,8 @@
     font-size: 3.2em;
     width: 300px; }
   .main__top .context__text--paragraph {
-    font-size: 1.4em; }
+    font-size: 1.4em;
+    text-align: right; }
 
 .main__body .body__inner {
   margin: 20px 40px; }
@@ -101,9 +102,40 @@
   .main__body .body__products-list .cell:hover .cell__product-img {
     transform: scale(1.1); }
 
-@media (max-width: 1366px) {
+@media (max-width: 743px) {
+  .main__top {
+    margin: 0; }
+  .main__top .top__image {
+    height: 100vw; }
+  .main__top .top__context {
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start; }
+  .main__top .top__image--glasses {
+    width: 75%; }
   .main__top .context__text--head {
-    font-size: 2.4em; }
+    font-size: 1.1em;
+    margin: 8px; }
+  .main__top .context__text--paragraph {
+    font-size: 0.8em;
+    text-align: left;
+    margin: 8px; }
+  .main__body .body__inner {
+    margin: 8px 16px; }
+  .main__body .body__products-list .products-list__inner {
+    margin: 8px; }
+  .main__body .body__products-list .cell {
+    width: calc(100% / 2); }
+  .main__body .body__products-list .cell .context__text--name {
+    font-size: 1em; }
+  .main__body .body__products-list .cell .context__text--price {
+    font-size: 0.9em; }
+  .main__body .body__products-list .cell .context__text--color {
+    display: none; } }
+
+@media (min-width: 744px) and (max-width: 1024px) {
+  .main__top .context__text--head {
+    font-size: 2em; }
   .main__top .context__text--paragraph {
     font-size: 1em; }
   .main__body .option__text {
@@ -113,6 +145,8 @@
   .main__body .body__products-list .cell .context__text--price {
     font-size: 0.8em; }
   .main__body .body__products-list .cell .context__text--color {
-    font-size: 0.9em; } }
+    font-size: 0.9em; }
+  .main__body .body__products-list .products-list__inner {
+    margin: 0 16px; } }
 
 /*# sourceMappingURL=products_style.css.map */

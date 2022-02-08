@@ -19,7 +19,7 @@ block content
           .product__shop
             .product__context
               .context__title
-                h1.context__title--name=product_data.productName
+                span.context__title--name=product_data.productName
                 span.context__title--color=product_data.productColor
               .context__price
                 if product_data.productDisCountedPrice
@@ -113,16 +113,16 @@ block content
                   span= spec.contents
 
       .body__section
-        .grid.grid--left
+        .grid.grid--left.fade-in.fade-in--slide-up
           - let packageImgUrl = category == "Eyeglasses" ? "../../../images/glasses/" + fileNamePrefix + "_package.jpg" : "../../../images/glasses/" + fileNamePrefix + "_front.jpg";
           img(src= packageImgUrl, alt="")
 
-        .grid.grid--right
+        .grid.grid--right.fade-in.fade-in--slide-up
           - let imgPath = "../../../images/glasses/" + fileNamePrefix;
 
-          img(src=imgPath + "_model1-1.jpg", alt="").fade-in.fade-in--slide-up
-          img(src=imgPath + "_model2-1.jpg", alt="").fade-in.fade-in--slide-up
-          img(src=imgPath + "_model1-2.jpg", alt="").fade-in.fade-in--slide-up
-          img(src=imgPath + "_model2-2.jpg", alt="").fade-in.fade-in--slide-up
+          img(src=imgPath + "_model1-1.jpg", alt="")
+          img(src=imgPath + "_model2-1.jpg", alt="")
+          img(src=imgPath + "_model1-2.jpg", alt="")
+          img(src=imgPath + "_model2-2.jpg", alt="")
   section.main__footer.flex--center
       a(href="/") Back to Main
