@@ -1,4 +1,3 @@
-document.querySelector(".main").style.height = window.innerHeight - document.querySelector(".header").offsetHeight + "px";
 
 let totalPriceLabel = document.querySelector('.row__total span:last-child');
 let totalPriceHead = document.querySelector('.total-price h2');
@@ -65,6 +64,11 @@ document.querySelectorAll('.cell__delete img').forEach(el => {
     })
 })
 
+function setWindowHeight() {
+    // document.querySelector(".main").style.height = window.innerHeight - document.querySelector(".header").offsetHeight + "px";
+    // document.querySelector(".main").style.minHeight = window.innerWidth + "px";
+}
+
 window.addEventListener('load', () => {
     if (document.querySelectorAll('.cell').length == 0) {
         let btn = document.querySelector('.payment input'); 
@@ -72,4 +76,10 @@ window.addEventListener('load', () => {
         btn.style.backgroundColor = '#eee';
         btn.style.cursor = 'default';
     }
+
+    setWindowHeight()
+})
+
+window.addEventListener('resize', () => {
+    setWindowHeight()
 })

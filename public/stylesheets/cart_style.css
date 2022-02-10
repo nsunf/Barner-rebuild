@@ -1,10 +1,15 @@
+html, body {
+  height: 100%; }
+
 .main {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: stretch;
+  height: calc(100% - 80px);
   width: 80%;
-  margin: 0 auto; }
+  margin: 0 auto;
+  padding-top: 80px;
+  box-sizing: border-box; }
 
 .main__top {
   border-bottom: 1px solid #6668E2; }
@@ -23,9 +28,9 @@
       align-items: flex-end; }
 
 .main__body {
+  flex-grow: 1;
   display: flex;
-  flex-direction: row;
-  height: 80vh; }
+  flex-direction: row; }
 
 .body__left {
   width: 50%;
@@ -61,7 +66,9 @@
     justify-content: center; }
   .body__left .text--name {
     font-size: 1.4em;
-    margin: 8px 0; }
+    margin: 4px 0; }
+  .body__left .text--color {
+    margin: 4px 0; }
   .body__left .text--price {
     font-size: 1.2em;
     color: black; }
@@ -114,5 +121,84 @@
     .body__right .payment input:hover {
       cursor: pointer;
       background-color: #9192ea; }
+
+@media (max-width: 743px) {
+  .main {
+    width: initial;
+    height: initial;
+    margin: 0;
+    padding-top: 8px; }
+  .main__top .top__inner {
+    width: initial;
+    padding: 0 16px; }
+  .main__body {
+    flex-direction: column; }
+  .body__left {
+    width: initial;
+    padding: 0 16px 0 0;
+    margin: 20px 0;
+    border-bottom: 1px solid #6668E2; }
+  .body__left .cell__image img {
+    width: 80px; }
+  .body__left .text--name {
+    font-size: 1em; }
+  .body__left .text--color {
+    font-size: 0.9em; }
+  .body__left .text--price {
+    font-size: 1em; }
+  .body__right {
+    margin: 80px 0; }
+  .body__right .row__name {
+    font-size: 1em; }
+  .body__right .row__price {
+    font-size: 0.9em; }
+  .body__right .total .row span {
+    font-size: 0.9em; }
+  .body__right .total-price {
+    margin: 20px 0; }
+  .body__right .total-price h2 {
+    font-size: 3em; }
+  .body__right .payment input {
+    width: 100%;
+    box-sizing: border-box; } }
+
+@media (min-width: 744px) and (max-width: 1024px) {
+  .main {
+    padding-top: 20px;
+    width: 95%; }
+  .body__left {
+    padding: 8px 20px 0 0; }
+  .body__left .cell {
+    padding: 8px; }
+  .body__left .cell__image img {
+    width: 100px; }
+  .body__left .text--name {
+    font-size: 1.1em; }
+  .body__left .text--color {
+    font-size: 0.9em; }
+  .body__left .text--price {
+    font-size: 1em; }
+  .body__right {
+    padding: 0 4%; }
+  .body__right .row__name {
+    font-size: 1em; }
+  .body__right .row__price {
+    font-size: 0.9em; }
+  .body__right .total .row span {
+    font-size: 0.9em; }
+  .body__right .total-price h2 {
+    font-size: 3.2em; }
+  .body__right .total-price {
+    margin: 20px 0; }
+  .body__right .payment input {
+    font-size: 1.8em;
+    padding: 16px 64px; } }
+
+@media (min-width: 1025px) and (max-width: 1366px) {
+  .main {
+    padding-top: 40px;
+    width: 90%; }
+  .body__left {
+    padding: 16px 40px 0 0; } }
 
 /*# sourceMappingURL=cart_style.css.map */

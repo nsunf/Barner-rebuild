@@ -32,58 +32,81 @@ document.querySelectorAll('.flag-group').forEach((el, i) => {
 
 
 let processBarAnime = anime({
-    targets: [document.querySelector('.process__svg--bar rect'), document.querySelector('.process__svg--bar image')],
-    translateY: 1540,
+    targets: document.querySelector('.process-bar-wrap'),
+    translateY: document.querySelector('.our-process').scrollHeight - document.querySelector('.process-bar-wrap').scrollHeight,
     duration: 1000,
     easing: 'linear',
     autoplay: false
 });
 
+
+var cnt = 0;
+function isDownScrolling(scrollY) {
+    if (scrollY > cnt) {
+        cnt = scrollY;
+        return true;
+    } else {
+        cnt = scrollY;
+        return false;
+    }
+}
+
+var stepTmp = 0;
 var isAnimating = false;
 
-window.addEventListener('scroll', () => {
-    let svgEl = document.querySelector('.our-process__svg'); 
-    let val = svgEl.getBoundingClientRect().top * -1;
-    let maxVal = svgEl.scrollHeight - window.innerHeight;
+function processBarAnimation(val)  {
+    let processBarWrap = document.querySelector('.process-bar-wrap');
+    var marginRight;
+    switch (val) {
+        case 0:
+            marginRight = "80%";
+            break;
+        case 1:
+            marginRight = "53%";
+            break;
+        case 2: 
+            marginRight = "26%";
+            break;
+        case 3:
+            marginRight = "0%";
+            break;
+        default: break;
+    }
 
-    let result = val / maxVal * processBarAnime.duration;
+    anime({
+        targets: processBarWrap,
+        marginRight: marginRight,
+        duration: 1000,
+        complete: () => {isAnimating = false}
+    })
+}
+window.addEventListener('scroll', () => {
+    let processBar = document.querySelector('.process-bar-wrap'); 
+    let val = window.scrollY - processBar.offsetTop + window.innerHeight / 3;
+
+    let result = val / (document.querySelector('.our-process').scrollHeight - document.querySelector('.process-bar-wrap').scrollHeight) * processBarAnime.duration;
 
     processBarAnime.seek(result)
 
-    // 50 .. 1640
-    // let offset = (1640 - 50) * val / maxVal + 50;
-    // document.querySelector('.process__svg--bar image').setAttribute('y', offset - 50)
-    // document.querySelector('.process__svg--bar rect').setAttribute('y', offset)
+    var campaignsLaunchedText = document.querySelector('.our-process__step--1');
+    var glassesDeliveredText = document.querySelector('.our-process__step--2');
+    var backersText = document.querySelector('.our-process__step--3');
+    var differentCountriesText = document.querySelector('.our-process__step--4');
 
+    var stepArr = [campaignsLaunchedText, glassesDeliveredText, backersText, differentCountriesText];
 
-    let processBarImage = document.querySelector('.process__svg--bar image');
-    let processBarRect = document.querySelector('.process__svg--bar rect');
-
-    var campaignsLaunchedText = document.querySelector('.process__svg--campaigns-launched');
-    var glassesDeliveredText = document.querySelector('.process__svg--glasses-delivered');
-    var backersText = document.querySelector('.process__svg--backers');
-    var differentCountriesText = document.querySelector('.process__svg--different-countries');
-
-    if (campaignsLaunchedText.getBoundingClientRect().top >= processBarImage.getBoundingClientRect().top) {
-        if (isAnimating) return ;
-        anime({targets: processBarRect, duration: 800, fill: '#6668e2', width: '200px', begin: () => {isAnimating = true}, complete: () => {isAnimating = false}})
-        anime({targets: processBarImage, duration: 800, fill: '#6668e2', x:'154px'})
-    } else if (glassesDeliveredText.getBoundingClientRect().top >= processBarImage.getBoundingClientRect().top) {
-        if (isAnimating) return ;
-        anime({targets: processBarRect, duration: 800, fill: '#6668e2', width: '325px', begin: () => {isAnimating = true}, complete: () => {isAnimating = false}})
-        anime({targets: processBarImage, duration: 800, fill: '#6668e2', x:'279px'})
-    } else if (backersText.getBoundingClientRect().top >= processBarImage.getBoundingClientRect().top) {
-        if (isAnimating) return ;
-        anime({targets: processBarRect, duration: 800, fill: '#5254c0', width: '450px', begin: () => {isAnimating = true}, complete: () => {isAnimating = false}})
-        anime({targets: processBarImage, duration: 800, fill: '#5254c0', x:'404px'})
-    } else if (differentCountriesText.getBoundingClientRect().top >= processBarImage.getBoundingClientRect().top) {
-        if (isAnimating) return ;
-        anime({targets: processBarRect, duration: 800, fill: '#3e409f', width: '575px', begin: () => {isAnimating = true}, complete: () => {isAnimating = false}})
-        anime({targets: processBarImage, duration: 800, fill: '#3e409f', x:'529px'})
+    if (isDownScrolling(window.scrollY)) {
+        if ((stepTmp < 3) && (stepArr[stepTmp + 1].getBoundingClientRect().top <= window.innerHeight / 3 + 10)) {
+            stepTmp++;
+            isAnimating = true;
+            processBarAnimation(stepTmp);
+        }
     } else {
-        if (isAnimating) return ;
-        anime({targets: processBarRect, duration: 800, fill: '#2a2b7d', width: '700px', begin: () => {isAnimating = true}, complete: () => {isAnimating = false}})
-        anime({targets: processBarImage, duration: 800, fill: '#2a2b7d', x:'654px'})
+        if ((stepTmp > 0) && (stepArr[stepTmp - 1].getBoundingClientRect().top > window.innerHeight / 3 - 20)) {
+            stepTmp--;
+            isAnimating = true;
+            processBarAnimation(stepTmp);
+        }
     }
 })
 

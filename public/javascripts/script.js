@@ -25,7 +25,7 @@ function searchBtnTapped(e) {
     }
 }
 
-function updateSearchResult(data, isSun) {
+function updateSearchResult(target, data, isSun) {
     for (var product of data) {
         let cellNode = document.createElement('a');
         cellNode.classList.add('search-result__cell');
@@ -45,7 +45,7 @@ function updateSearchResult(data, isSun) {
         cellNode.appendChild(nameSpan);
         cellNode.appendChild(priceSpan);
 
-        document.querySelector('.search-result').appendChild(cellNode)
+        target.appendChild(cellNode)
     }
 }
 
@@ -70,8 +70,42 @@ document.querySelector('.header__search input').addEventListener('input', functi
                 value: this.value
             }
         }).then(response => {
-            updateSearchResult(response.data.glasses, false);
-            updateSearchResult(response.data.sunglasses, true);
+            updateSearchResult(searchResult, response.data.glasses, false);
+            updateSearchResult(searchResult, response.data.sunglasses, true);
+        })
+    }
+})
+
+document.querySelector('.mobile-header__menu').addEventListener('click', () => {
+    let menuNav = document.querySelector('.menu__nav'); 
+    if (menuNav.classList.contains('menu__nav--open')) {
+        menuNav.classList.remove('menu__nav--open');
+    } else {
+        menuNav.classList.add('menu__nav--open');
+    }
+})
+
+document.querySelector('.mobile-header__search').addEventListener('click', () => {
+    document.querySelector('.mobile-search-view').classList.add('mobile-search-view--open');
+    document.querySelector('.search-bar__input').focus()
+});
+
+document.querySelector('.close-btn').addEventListener('click', () => {
+    document.querySelector('.mobile-search-view').classList.remove('mobile-search-view--open');
+})
+
+document.querySelector('.search-bar__input').addEventListener('input', function() {
+    let searchResult = document.querySelector('.mobile-search-result');
+    searchResult.innerHTML = '';
+
+    if (this.value) {
+        axios.post('/glasses/search', {
+            data: {
+                value: this.value
+            }
+        }).then(response => {
+            updateSearchResult(searchResult, response.data.glasses, false);
+            updateSearchResult(searchResult, response.data.sunglasses, true);
         })
     }
 })

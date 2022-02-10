@@ -19,7 +19,8 @@ block content
             let path = '../../../images/glasses/' + fileName;
           img(src=path, alt="product image")
         .cell__text
-          span.text--name!= product.productName + " " + product.productColor
+          span.text--name!= product.productName
+          span.text--color!= product.productColor
           span.text--price!= product.productDisCountedPrice ? product.productDisCountedPrice : product.productPrice
         .cell__delete(data-index=id)
           img(src="../../../images/svg/bx_bx-x.svg", alt="")
