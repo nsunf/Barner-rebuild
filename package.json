@@ -1,6 +1,7 @@
 {
   "name": "barner-rebuild",
   "version": "0.0.0",
+  "engines": "14.*",
   "private": true,
   "scripts": {
     "start": "node ./bin/www"
